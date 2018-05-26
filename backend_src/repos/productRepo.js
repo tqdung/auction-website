@@ -6,9 +6,26 @@ exports.loadAll = function() {
     return db.load(sql);
 }
 
-exports.loadPage = function(page) {
+exports.loadProOrNum = function(page) {
     var offset = (page - 1) * constants.PRODUCTS_PER_PAGE;
-    var sql = `select * from products limit ${constants.PRODUCTS_PER_PAGE + 1} offset ${offset}`;
+    var sql = `SELECT * FROM products ORDER BY SlRaGia limit ${constants.PRODUCTS_PER_PAGE + 1} offset ${offset}`;
+
+    return db.load(sql);
+}
+
+
+exports.loadProOrPrice = function(page) {
+    var offset = (page - 1) * constants.PRODUCTS_PER_PAGE;
+    var sql = `SELECT * FROM products ORDER BY GiaHienTai limit ${constants.PRODUCTS_PER_PAGE + 1} offset ${offset}`;
+
+    return db.load(sql);
+}
+
+
+exports.loadProOrTime = function(page) {
+    var offset = (page - 1) * constants.PRODUCTS_PER_PAGE;
+    var sql = `SELECT * FROM products ORDER BY NgayBD limit ${constants.PRODUCTS_PER_PAGE + 1} offset ${offset}`;
+
     return db.load(sql);
 }
 

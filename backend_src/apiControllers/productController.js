@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
         page = +req.query.page;
     }
 
-    productRepo.loadPage(page).then(rows => {
+    productRepo.loadProOrNum(page).then(rows => {
         var hasMore = rows.length > constants.PRODUCTS_PER_PAGE;
         if (hasMore) {
             rows.pop();

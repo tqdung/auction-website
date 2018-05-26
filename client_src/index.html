@@ -326,27 +326,19 @@
                         <!--Main Form-->
                         <div class="main-search-form">
                             <div class="form-row">
-                                <div class="col-md-3 col-sm-3">
+                                <div class="col-md-6 col-sm-6">
                                     <div class="form-group">
-                                        <label for="what" class="col-form-label">What?</label>
-                                        <input name="keyword" type="text" class="form-control" id="what" placeholder="What are you looking for?">
+                                        <label for="what" class="col-form-label">Từ khóa</label>
+                                        <input name="keyword" type="text" class="form-control" id="what" placeholder="Bạn muốn tìm kiếm gì?">
                                     </div>
                                     <!--end form-group-->
                                 </div>
                                 <!--end col-md-3-->
-                                <div class="col-md-3 col-sm-3">
-                                    <div class="form-group">
-                                        <label for="input-location" class="col-form-label">Where?</label>
-                                        <input name="location" type="text" class="form-control" id="input-location" placeholder="Enter Location">
-                                        <span class="geo-location input-group-addon" data-toggle="tooltip" data-placement="top" title="Find My Position"><i class="fa fa-map-marker"></i></span>
-                                    </div>
-                                    <!--end form-group-->
-                                </div>
                                 <!--end col-md-3-->
                                 <div class="col-md-3 col-sm-3">
                                     <div class="form-group">
-                                        <label for="category" class="col-form-label">Category?</label>
-                                        <select name="category" id="category" data-placeholder="Select Category">
+                                        <label for="category" class="col-form-label">Doanh mục</label>
+                                        <select name="category" id="category" data-placeholder="Chọn doanh mục">
                                             <option value="">Select Category</option>
                                             <option value="1">Computers</option>
                                             <option value="2">Real Estate</option>
@@ -384,10 +376,6 @@
                                             <label>
                                                 <input type="checkbox" name="with_photo">
                                                 Sắp kết thúc
-                                            </label>
-                                            <label>
-                                                <input type="checkbox" name="featured">
-                                                Featured
                                             </label>
                                         </div>
                                         <!--end col-xl-6-->
@@ -459,24 +447,45 @@
                 <div class="container">
                     <div class="container-fluid">
                         <div class="row">
+                            <!--Top sản phẩm có nhiều lượt ra giá-->
                             <div class="col-sm-12 col-md-12">
                                 <div class="panel panel-default">
-                                    <div class="panel-heading">
-                                        <h3 class="panel-title">Products</h3>
+                                    <div class="form-group">
+                                        <label class="col-form-label text-danger">Top sản phẩm có nhiều lượt ra giá</label>
                                     </div>
                                     <div class="panel-body">
-                                        <div class="row" id="product-list">
+                                        <div class="row" id="product-list-num">
 
                                         </div>
                                         <div class="loader"></div>
-                                        <div class="row">
-                                            <br>
-                                            <div class="col-sm-12 col-md-12">
-                                                <button id="btnMore" type="button" class="btn btn-large btn-block btn-success">
-                                                    <h4>Load more...</h4>
-                                                </button>
-                                            </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Top sản phẩm có giá cao nhất-->
+                            <div class="col-sm-12 col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="form-group">
+                                        <label class="col-form-label text-danger">Top sản phẩm có giá cao nhất</label>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row" id="product-list-price">
+
                                         </div>
+                                        <div class="loaderprice"></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--Top sản phẩm gần kết thúc-->
+                            <div class="col-sm-12 col-md-12">
+                                <div class="panel panel-default">
+                                    <div class="form-group">
+                                        <label class="col-form-label text-danger">Top sản phẩm gần kết thúc</label>
+                                    </div>
+                                    <div class="panel-body">
+                                        <div class="row" id="product-list-time">
+
+                                        </div>
+                                        <div class="loadertime"></div>
                                     </div>
                                 </div>
                             </div>
@@ -489,14 +498,107 @@
             <!--end block-->
         </section>
         <!--end content-->
+
+        <!--*********************************************************************************************************-->
+        <!--************ FOOTER *************************************************************************************-->
+        <!--*********************************************************************************************************-->
+        <footer class="footer">
+            <div class="wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-5">
+                            <a href="#" class="brand">
+                                <img src="assets/img/logo.png" alt="">
+                            </a>
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut nec tincidunt arcu, sit amet
+                                fermentum sem. Class aptent taciti sociosqu ad litora torquent per conubia nostra.
+                            </p>
+                        </div>
+                        <!--end col-md-5-->
+                        <div class="col-md-3">
+                            <h2>Navigation</h2>
+                            <div class="row">
+                                <div class="col-md-6 col-sm-6">
+                                    <nav>
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a href="#">Home</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Listing</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Pages</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Extras</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Contact</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Submit Ad</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                                <div class="col-md-6 col-sm-6">
+                                    <nav>
+                                        <ul class="list-unstyled">
+                                            <li>
+                                                <a href="#">My Ads</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Sign In</a>
+                                            </li>
+                                            <li>
+                                                <a href="#">Register</a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end col-md-3-->
+                        <div class="col-md-4">
+                            <h2>Contact</h2>
+                            <address>
+                                <figure>
+                                    124 Abia Martin Drive<br>
+                                    New York, NY 10011
+                                </figure>
+                                <br>
+                                <strong>Email:</strong> <a href="#">hello@example.com</a>
+                                <br>
+                                <strong>Skype: </strong> Craigs
+                                <br>
+                                <br>
+                                <a href="contact.html" class="btn btn-primary text-caps btn-framed">Contact Us</a>
+                            </address>
+                        </div>
+                        <!--end col-md-4-->
+                    </div>
+                    <!--end row-->
+                </div>
+                <div class="background">
+                    <div class="background-image original-size">
+                        <img src="assets/img/footer-background-icons.jpg" alt="">
+                    </div>
+                    <!--end background-image-->
+                </div>
+                <!--end background-->
+            </div>
+        </footer>
+        <!--end footer-->
     </div>
     <!--end page-->
 
     <script id="product-template" type="text/x-handlebars-template">
         {{#each this}}
-        <div class="col-sm-4 col-md-4" style="display: none">
+        <div class="col-sm-3 col-md-3" style="display: none">
             <div class="thumbnail">
-                <img src="{{HinhAnh}}" alt="{{ProName}}" title="{{ProName}}">
+                <img class="img-product" src="{{HinhAnh}}" alt="{{ProName}}" title="{{ProName}}">
                 <div class="caption">
                     <h4>{{ProName}}</h4>
                     <p>
