@@ -4,7 +4,7 @@ var mysql = require('mysql'),
 const _HOST = '127.0.0.1',
 	_PORT = '3306',
 	_USER = 'root',
-	_PWD = '',
+	_PWD = 'root',
 	_DB = 'auction';
 
 exports.load = function (sql) {

@@ -19,7 +19,7 @@ router.post('/', (req, res) => {
 });
 
 router.post('/captcha', (req, res) => {
-    var secret = '6LderVAUAAAAANlZ_RuqdomfqVp90ElsfXDP2WOX';
+    var secret = '6LeS5FMUAAAAAIbog9aGScVx58yvfXMZto2HjTR6';
     var captcha_response = req.body.captcha_response;
 
     var url = `https://www.google.com/recaptcha/api/siteverify?secret=${secret}&response=${captcha_response}`;
@@ -35,9 +35,24 @@ router.post('/captcha', (req, res) => {
             // console.log(response.data);
             // res.end('ok');
             res.json(response.data);
+            
         })
         .catch(function(error) {
             res.end('fail');
+        });
+});
+
+
+router.get('/', (req, res) => {
+    userRepo.add(req.body)
+        .then(insertId => {
+            res.statusCode = 201;
+            res.json(req.body);
+        })
+        .catch(err => {
+            console.log(err);
+            res.statusCode = 500;
+            res.end();
         });
 });
 
