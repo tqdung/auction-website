@@ -358,14 +358,13 @@
                             <section>
                                 <h2>Gallery</h2>
                                 <!--end section-title-->
-                                <div class="gallery-carousel owl-carousel">
-                                    <img src="assets/img/image-20.jpg" alt="" data-hash="1">
-                                    <img src="assets/img/image-01.jpg" alt="" data-hash="2">
-                                    <img src="assets/img/image-21.jpg" alt="" data-hash="3">
-                                    <img src="assets/img/image-22.jpg" alt="" data-hash="4">
-                                    <img src="assets/img/image-23.jpg" alt="" data-hash="5">
-                                    <img src="assets/img/image-14.jpg" alt="" data-hash="6">
+                                <div class="gallery-carousel owl-carousel" id="product-list-detail" > <!-- sửa chỗ này -->
+                                 
+                                      
+                                   
+                                        
                                 </div>
+
                                 <div class="gallery-carousel-thumbs owl-carousel">
                                     <a href="#1" class="owl-thumb active-thumb background-image">
                                         <img src="assets/img/image-20.jpg" alt="">
@@ -382,9 +381,7 @@
                                     <a href="#5" class="owl-thumb background-image">
                                         <img src="assets/img/image-23.jpg" alt="">
                                     </a>
-                                    <a href="#6" class="owl-thumb background-image">
-                                        <img src="assets/img/image-14.jpg" alt="">
-                                    </a>
+                                   
                                 </div>
                             </section>
                             <!--end Gallery Carousel-->
@@ -797,16 +794,33 @@
         <!--end footer-->
     </div>
     <!--end page-->
+     <script id="product-detail" type="text/x-handlebars-template">
+        {{#each this}}
+        <img src="{{url}}" alt="" data-hash="{{id}}">
+
+        {{/each}}
+
+        </script>
+    <script id="product-detail1" type="text/x-handlebars-template">
+        {{#each this}}
+         <a href="#1" class="owl-thumb active-thumb background-image">
+            <img src="{{image.url}}" alt="">
+        </a>    
+        {{/each}}
+    </script>
 
 	<script src="assets/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="assets/js/popper.min.js"></script>
 	<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBEDfNcQRmKQEyulDN8nGWjLYPm8s4YB58&libraries=places"></script>
+       <script src="assets/handlebars.min-v4.0.11.js"></script>
+    <script src="assets/handlebars-intl-1.1.2/handlebars-intl.min.js"></script>
+    <script src="assets/me/index.js"></script>
 	<script src="assets/js/selectize.min.js"></script>
-	<script src="assets/js/icheck.min.js"></script>
-	<script src="assets/js/owl.carousel.min.js"></script>
-	<script src="assets/js/jquery.validate.min.js"></script>
-	<script src="assets/js/custom.js"></script>
+	<script src="assets/js/icheck.min.js"></script>	
+	<script src="assets/js/jquery.validate.min.js"></script> 
+	<script src="assets/js/custom.js"></script>   
+    <script src="assets/js/owl.carousel.min.js"></script>
 
     <script>
         var latitude = 51.511971;
@@ -815,6 +829,17 @@
         var mapTheme = "light";
         var mapElement = "map-small";
         simpleMap(latitude, longitude, markerImage, mapTheme, mapElement);
+        $.urlParam = function(name){
+            var results = new RegExp('[\?&]' + name + '=([^&#]*)').exec(window.location.href);
+            if (results==null){
+               return null;
+            }
+            else{
+               return decodeURI(results[1]) || 0;
+            }
+        }
+        var id = $.urlParam('id');
+        loadProDetail(id);
     </script>
 
 </body>

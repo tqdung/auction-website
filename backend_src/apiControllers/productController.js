@@ -45,10 +45,23 @@ router.get('/:id', (req, res) => {
             res.end();
             return;
         }
-
+        data = {};
         productRepo.load(id).then(rows => {
             if (rows.length > 0) {
-                res.json(rows[0]);
+                data.product = rows[0];
+                productRepo.loadImage(id).then(rowsDetail => {
+                    if (rowsDetail.length > 0) {
+                        data.image = rowsDetail;
+                        res.json(data);
+                    } else {
+                        res.statusCode = 204;
+                        res.end();
+                    }
+                }).catch(err => {
+                    console.log(err);
+                    res.statusCode = 500;
+                    res.json('error');
+                });
             } else {
                 res.statusCode = 204;
                 res.end();

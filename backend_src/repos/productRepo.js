@@ -33,3 +33,7 @@ exports.load = function(id) {
     var sql = `select * from products where ProID = ${id}`;
     return db.load(sql);
 }
+exports.loadImage = function(id) {
+    var sql = `select * from detail where product_id = ${id}`;
+    return db.load(sql);
+}
