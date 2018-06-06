@@ -1,11 +1,16 @@
 $('#btnRegister').on('click', function(){
     var isValid = $("#registerForm").valid();
+    var name = $("#name").val();
+    var email = $("#email").val();
+    var pass = $("#password").val();
+    var repeat_pass = $("#repeat_password").val();
+    if(pass !== repeat_pass){
+        isValid = false;
+    }
+    // console.log(isValid);
     if (isValid) {
         var captcha_response = grecaptcha.getResponse();
         // console.log(captcha_response);
-        var name = $("#name").val();
-        var email = $("#email").val();
-        var pass = $("#password").val();
         var body = {
             captcha_response: grecaptcha.getResponse(),
             user_name: name,
@@ -30,13 +35,16 @@ $('#btnRegister').on('click', function(){
                     contentType: 'application/json',
                     data: JSON.stringify(body)
                 }).done(function(insertId){
-                    swal("Registion Success!", "You clicked the button!", "success");
+                    swal("Đăng ký tài khoản thành công!", "Xác nhận thông tin tại tài khoản email của bạn!", "success")
+                        .then(()=>{
+                            window.location.href = "./sign-in.html";
+                        });
                 }).fail(function(xhr, textStatus, error){
-                    swal(error, "You clicked the button!", "error");
+                    swal(error, "Có thể email đã tồn tại, vui lòng thử lại email khác!", "error");
                 })
             } else {
                 grecaptcha.reset();
-                swal("Invalid captcha.", "You clicked the button!", "error");
+                swal("Captcha không hợp lệ.", "Vui lòng xác thực lại!", "error");
             }
             
         }).fail(function(xhr, textStatus, error) {
@@ -45,13 +53,13 @@ $('#btnRegister').on('click', function(){
             console.log(xhr);
         });
     } else {
-        // swal("Good job!", "You clicked the button!", "error");
+        swal("Thông tin vừa nhập chưa chính xác!", "Kiễm tra lại thông tin!", "error");
     }
 })
 
 
 $('#btnSignIn').on('click', function(){
-    var isValid = $("#registerForm").valid();
+    var isValid = $("#loginForm").valid();
     if (isValid) {
         var email = $("#email").val();
         var pass = $("#password").val();
@@ -61,16 +69,31 @@ $('#btnSignIn').on('click', function(){
             password: pass
         };
         $.ajax({
-            url: 'http://localhost:3000/users',
+            url: 'http://localhost:3000/users/login',
             dataType: 'json',
             timeout: 10000,
-            type: 'GET',
+            type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(body)
-        }).done(function(){
-
-        }).fail(function(){
-
+        }).done(function(data){
+            if(data[0] === undefined){
+                swal("Đăng nhập thất bại!", "Kiểm tra lại thông tin của bạn!", "error")
+                    .then(()=>{
+                        $("#loginForm")[0].reset();
+                    });
+            }
+            else{
+                // Đăng nhập thành công ==> redirect
+                swal("Đăng nhập thành công!", "Click ok để tiếp tục!", "success")
+                    .then(()=>{
+                        window.location.href = "./index.html";
+                    });
+            }
+        }).fail(function(xhr, textStatus, error){
+            swal(error, "Click button to continute", "error");
+            console.log(textStatus);
+            console.log(error);
+            console.log(xhr);
         });
     }
 });
