@@ -22,3 +22,13 @@ exports.add = function (poco) {
 		[poco.user_name, type_user , poco.user_email, md5_password]);
 	return db.insert(sql);
 }
+exports.login = function(info){
+	var pass = md5(info.password);
+	var sql= mysql.format('select * from users where Email=? and Password=? and active=1',[info.user_email, pass]);
+	return db.load(sql);
+}
+
+exports.confirm = function(info){
+	var sql= mysql.format('update * users set active=1 where Email=?',[info.user_email]);
+	return db.load(sql);
+}
