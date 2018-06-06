@@ -1,1 +1,1 @@
-﻿thay đổi cấu trúc của bảng user
+﻿Đã gộp db lại
