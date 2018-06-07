@@ -86,15 +86,11 @@ $('#btnSignIn').on('click', function(){
                 // Đăng nhập thành công ==> redirect
                 swal("Đăng nhập thành công!", "Click ok để tiếp tục!", "success")
                     .then(()=>{
-                        var UserInfo = data[0];
-                        // Put the object into storage
-                        localStorage.setItem('UserInfo', JSON.stringify(UserInfo));
-                        
+                        var USER_INFO = data[0];
+                        //Put the object into storage
+                        localStorage.setItem('UserInfo', JSON.stringify(USER_INFO));
+                
                         window.location.href = "./index.html";
-                        // Retrieve the object from storage
-                        var retrievedObject = localStorage.getItem('UserInfo');
-                        
-                        console.log('retrievedObject: ', JSON.parse(retrievedObject));
                     });
             }
         }).fail(function(xhr, textStatus, error){
