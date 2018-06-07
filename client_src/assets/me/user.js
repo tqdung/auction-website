@@ -86,7 +86,15 @@ $('#btnSignIn').on('click', function(){
                 // Đăng nhập thành công ==> redirect
                 swal("Đăng nhập thành công!", "Click ok để tiếp tục!", "success")
                     .then(()=>{
+                        var UserInfo = data[0];
+                        // Put the object into storage
+                        localStorage.setItem('UserInfo', JSON.stringify(UserInfo));
+                        
                         window.location.href = "./index.html";
+                        // Retrieve the object from storage
+                        var retrievedObject = localStorage.getItem('UserInfo');
+                        
+                        console.log('retrievedObject: ', JSON.parse(retrievedObject));
                     });
             }
         }).fail(function(xhr, textStatus, error){
@@ -94,6 +102,7 @@ $('#btnSignIn').on('click', function(){
             console.log(textStatus);
             console.log(error);
             console.log(xhr);
+            // javascript:;
         });
     }
 });

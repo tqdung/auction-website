@@ -3,6 +3,8 @@ var express = require('express'),
     nodemailer = require('nodemailer');
 
 var userRepo = require('../repos/userRepo');
+var jwt = require('jsonwebtoken');
+const SECRET_KEY = 'doanweb2';
 
 var router = express.Router();
 
@@ -19,10 +21,6 @@ var smtpTransport = nodemailer.createTransport({
 });
 var rand, mailOptions, host, link;
 
-router.post('/send',(req, res)=>{
-    console.log(req);
-});
-
 router.post('/', (req, res, next) => {
     userRepo.add(req.body)
         .then(insertId => {
@@ -34,14 +32,19 @@ router.post('/', (req, res, next) => {
             res.statusCode = 500;
             res.end();
         });
-        next();
-}, function(req, res){
+    next();
+}, function (req, res) {
     //rand = Math.floor((Math.random() * 100) + 54);
+    var email = req.body.user_email;
+    var email_token = jwt.sign({
+        exp: Math.floor(Date.now() / 1000) + (60 * 60 * 2),
+        data: email
+    }, SECRET_KEY);
     host = req.get('host');
-    link = "http://" + req.get('host') + "/users/verify/" + req.body.user_email;
+    link = "http://" + req.get('host') + "/users/verify/" + email_token;
     mailOptions = {
         to: req.body.user_email,
-        subject: "Please confirm your Email account",
+        subject: "Please confirm your Email account. ",
         html: "Hello,<br> Please Click on the link to verify your email.<br><a href=" + link + ">Click here to verify</a>"
     }
     console.log(mailOptions);
@@ -56,10 +59,13 @@ router.post('/', (req, res, next) => {
     });
 });
 
-router.get('/verify/:email', function (req, res) {
-    userRepo.confirm(req.params.email).then(()=>{
+router.get('/verify/:token', function (req, res) {
+    // còn nhiều thuộc tính để có thời gian sẽ optimate(verify là json)
+    verify = jwt.decode(req.params.token);
+    email = verify.data
+    userRepo.confirm(email).then(()=>{
         res.status = 200;
-        res.json(req.params.email + " đã được xác nhận");
+        res.json(email + " đã được xác nhận");
     }).catch(err=>{
         console.log(err);
         res.json(err);
