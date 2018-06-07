@@ -28,7 +28,7 @@ exports.login = function(info){
 	return db.load(sql);
 }
 
-exports.confirm = function(info){
-	var sql= mysql.format('update * users set active=1 where Email=?',[info.user_email]);
+exports.confirm = function(email){
+	var sql= mysql.format('update users set active=1 where Email=?',[email]);
 	return db.load(sql);
 }
