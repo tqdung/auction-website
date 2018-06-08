@@ -12,7 +12,6 @@ var app = express();
 app.use(morgan('dev'));
 app.use(cors());
 app.use(bodyParser.json());
-
 // app.get('/', (req, res) => {
 // 	// res.end('hello from nodejs');
 // 	var ret = {

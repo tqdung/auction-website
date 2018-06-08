@@ -23,7 +23,7 @@ exports.loadProOrNum = function(page) {
     MoTa as MoTa,
     NguoiBanID as NguoiBanID
     FROM products
-    ORDER BY SlRaGia limit ${constants.PRODUCTS_PER_PAGE + 1} offset ${offset}`;
+    ORDER BY SlRaGia DESC limit ${constants.PRODUCTS_PER_PAGE + 1} offset ${offset}`;
 
     return db.load(sql);
 }
@@ -45,7 +45,7 @@ exports.loadProOrPrice = function(page) {
     NguoiGiuGiaID as NguoiGiuGiaID,
     MoTa as MoTa,
     NguoiBanID as NguoiBanID
-    FROM products ORDER BY GiaHienTai limit ${constants.PRODUCTS_PER_PAGE + 1} offset ${offset}`;
+    FROM products ORDER BY GiaHienTai DESC limit ${constants.PRODUCTS_PER_PAGE + 1} offset ${offset}`;
 
     return db.load(sql);
 }
@@ -67,7 +67,7 @@ exports.loadProOrTime = function(page) {
     NguoiGiuGiaID as NguoiGiuGiaID,
     MoTa as MoTa,
     NguoiBanID as NguoiBanID
-    FROM products ORDER BY NgayBD ASC limit ${constants.PRODUCTS_PER_PAGE + 1} offset ${offset}`;
+    FROM products ORDER BY NgayKT DESC limit ${constants.PRODUCTS_PER_PAGE + 1} offset ${offset}`;
 
     return db.load(sql);
 }
