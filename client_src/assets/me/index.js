@@ -5,35 +5,7 @@ $(function() {
     loadProNums();
 });
 
-$('#btnMore').on('click', function() {
-    loadProNums();
-});
 
-var loadProNums = function() {
-    $('.loader').show();
-
-    $.ajax({
-        url: 'http://localhost:3000/products?page=' + CUR_PAGE,
-        dataType: 'json',
-        timeout: 10000
-    }).done(function(data) {
-        var source = $('#product-template').html();
-        var template = Handlebars.compile(source);
-        var html = template(data.products);
-        $('#product-list-num').append(html);
-
-        $('#product-list-num div[style]').fadeIn(200, function() {
-            $(this).removeAttr('style');
-        });
-
-        CUR_PAGE++;
-        if (data.hasMore === false) {
-            $('#btnMoreNum').hide();
-        }
-
-        $('.loader').hide();
-    });
-};
 
 
 // $(function() {
@@ -61,28 +33,38 @@ var loadProDetail = function(id) {
             $(this).removeAttr('style');
         });
 
-        
     });
 };
 $(function() {
     HandlebarsIntl.registerWith(Handlebars);
-    loadProPrices();
+    load();
 });
 
-var loadProPrices = function() {
-    $('.loaderprice').show();
+var load = function() {
+    $('.loader').show();
 
     $.ajax({
         url: 'http://localhost:3000/products?page=' + CUR_PAGE,
         dataType: 'json',
         timeout: 10000
     }).done(function(data) {
+        console.log(data);
         var source = $('#product-template').html();
         var template = Handlebars.compile(source);
         var html = template(data.products);
+        var html2 = template(data2.products);
+        var html3 = template(data3.products);
         $('#product-list-price').append(html);
+        $('#product-list-num').append(html);
+        $('#product-list-time').append(html);
 
         $('#product-list-price div[style]').fadeIn(200, function() {
+            $(this).removeAttr('style');
+        });
+        $('#product-list-num div[style]').fadeIn(200, function() {
+            $(this).removeAttr('style');
+        });
+        $('#product-list-time div[style]').fadeIn(200, function() {
             $(this).removeAttr('style');
         });
 
@@ -95,34 +77,3 @@ var loadProPrices = function() {
     });
 };
 
-
-$(function() {
-    HandlebarsIntl.registerWith(Handlebars);
-    loadProTimes();
-});
-
-var loadProTimes = function() {
-    $('.loadertime').show();
-
-    $.ajax({
-        url: 'http://localhost:3000/products?page=' + CUR_PAGE,
-        dataType: 'json',
-        timeout: 10000
-    }).done(function(data) {
-        var source = $('#product-template').html();
-        var template = Handlebars.compile(source);
-        var html = template(data.products);
-        $('#product-list-time').append(html);
-
-        $('#product-list-time div[style]').fadeIn(200, function() {
-            $(this).removeAttr('style');
-        });
-
-        CUR_PAGE++;
-        if (data.hasMore === false) {
-            $('#btnMoreTime').hide();
-        }
-
-        $('.loadertime').hide();
-    });
-};

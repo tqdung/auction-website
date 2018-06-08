@@ -36,19 +36,15 @@
                         <!--end left-->
                         <ul class="right">
                             <li>
-                                <a href="my-ads.html">
-                                    <i class="fa fa-heart"></i>My Ads
-                                </a>
-                            </li>
-                            <li>
-                                <a href="sign-in.html">
-                                    <i class="fa fa-sign-in"></i>Sign In
-                                </a>
-                            </li>
-                            <li>
-                                <a href="register.html">
-                                    <i class="fa fa-pencil-square-o"></i>Register
-                                </a>
+                                <div class="dropdown">
+                                    <button class="btn btn-secondary dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                      Tên
+                                    </button>
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                      <a class="dropdown-item text-danger" href="#"><h3>Chỉnh sửa thông tin</h3></a>
+                                      <a class="dropdown-item text-danger" href="#"><h3>Đăng xuất</h3></a>
+                                    </div>
+                                  </div>
                             </li>
                         </ul>
                         <!--end right-->
@@ -601,8 +597,12 @@
         <div class="col-sm-3 col-md-3" style="display: none">
             <div class="thumbnail">
                 <img class="img-product"  src="{{HinhAnh}}" alt="{{ProName}}" title="{{ProName}}">
-                <div class="caption">
+                <div class="caption text-center">
                     <h4>{{ProName}}</h4>
+                    <span>Bắt đầu: {{NgayBD}}</span><br/>
+                    <span>Kết thúc: {{NgayKT}}</span><br/>
+                    <span>Số lượng ra giá: {{SlRaGia}}</span><br/>
+                    <span>Giá hiện tại: {{GiaHienTai}}</span><br/>
                     <p>
                         <a href="single-listing-1.html?id={{ProID}}" class="btn btn-primary">
                             <span class="glyphicon glyphicon-eye-open"></span>

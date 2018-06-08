@@ -1,12 +1,12 @@
 var db = require('../fn/mysql-db');
 
 exports.loadAll = function() {
-	var sql = 'select * from categories';
+	var sql = 'select * from loaisp';
 	return db.load(sql);
 }
 
 exports.load = function(id) {
-	var sql = `select * from categories where CatID = ${id}`;
+	var sql = `select * from loaisp where CatID = ${id}`;
 	return db.load(sql);
 }
 
@@ -16,7 +16,7 @@ exports.add = function(poco) {
 	// 	CatName: 'new name'
 	// }
 	
-	var sql = `insert into categories(CatName) values('${poco.CatName}')`;
+	var sql = `insert into loaisp(CatName) values('${poco.CatName}')`;
 	return db.insert(sql);
 }
 
