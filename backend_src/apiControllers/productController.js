@@ -4,6 +4,7 @@ var productRepo = require('../repos/productRepo'),
 
 var router = express.Router();
 
+//Tải sản phẩm theo loại.
 router.get('/', (req, res) => {
     if (req.query.type === 'num'){
         var page = 1;

@@ -49,6 +49,8 @@ $(function () {
 var load = function() {
     $('.loader').show();
 };
+
+//ajax load sản phẩm theo loại.
 var loadPro = function () {
     $('.loader').show();
     $.ajax({
@@ -101,4 +103,3 @@ $.ajax({
         $('.loader').hide();
     });
 };
-
