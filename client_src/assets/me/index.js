@@ -2,7 +2,7 @@ var CUR_PAGE = 1;
 
 $(function () {
     HandlebarsIntl.registerWith(Handlebars);
-    loadProNums();
+    loadPro();
 
     // 2 Dòng dưới, là vì ở user.js, sau khi login lên thì sẽ lưu thông tin người dùng ở localStorage
     // Qua bên này sẽ load lại thông tin
@@ -49,33 +49,51 @@ $(function () {
 var load = function() {
     $('.loader').show();
 };
-var loadProPrices = function () {
+
+//ajax load sản phẩm theo loại.
+var loadPro = function () {
     $('.loader').show();
     $.ajax({
         url: 'http://localhost:3000/products?page=' + CUR_PAGE,
         dataType: 'json',
+        data:{type:'num'},
         timeout: 10000
-    }).done(function(data) {
-        console.log(data);
     }).done(function (data) {
         var source = $('#product-template').html();
         var template = Handlebars.compile(source);
         var html = template(data.products);
-        var html2 = template(data2.products);
-        var html3 = template(data3.products);
-        $('#product-list-price').append(html);
         $('#product-list-num').append(html);
-        $('#product-list-time').append(html);
-
-        $('#product-list-price div[style]').fadeIn(200, function () {
+        $('#product-list-num div[style]').fadeIn(200, function () {
             $(this).removeAttr('style');
         });
-        $('#product-list-num div[style]').fadeIn(200, function() {
+$.ajax({
+    url: 'http://localhost:3000/products?page=' + CUR_PAGE,
+    dataType: 'json',
+    data:{type:'price'},
+    timeout: 10000
+}).done(function (data) {
+    var source2 = $('#product-template').html();
+    var template2 = Handlebars.compile(source2);
+    var html2 = template(data.products);
+    $('#product-list-price').append(html2);
+    $('#product-list-price div[style]').fadeIn(200, function () {
+        $(this).removeAttr('style');
+    });
+    $.ajax({
+        url: 'http://localhost:3000/products?page=' + CUR_PAGE,
+        dataType: 'json',
+        data:{type:'time'},
+        timeout: 10000
+    }).done(function (data) {
+        var source3 = $('#product-template').html();
+        var template3 = Handlebars.compile(source3);
+        var html3 = template(data.products);
+        $('#product-list-time').append(html3);
+        $('#product-list-time div[style]').fadeIn(200, function () {
             $(this).removeAttr('style');
         });
-        $('#product-list-time div[style]').fadeIn(200, function() {
-            $(this).removeAttr('style');
-        });
+    });
+});
 
         CUR_PAGE++;
         if (data.hasMore === false) {

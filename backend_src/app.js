@@ -6,13 +6,12 @@ var express = require('express'),
 var categoryCtrl = require('./apiControllers/categoryController'),
 	productCtrl = require('./apiControllers/productController'),
 	userCtrl = require('./apiControllers/userController');
-
+	searchCtrl = require('./apiControllers/searchController');
 var app = express();
 
 app.use(morgan('dev'));
 app.use(cors());
 app.use(bodyParser.json());
-
 // app.get('/', (req, res) => {
 // 	// res.end('hello from nodejs');
 // 	var ret = {
@@ -24,7 +23,7 @@ app.use(bodyParser.json());
 app.use('/categories', categoryCtrl);
 app.use('/users', userCtrl);
 app.use('/products', productCtrl);
-
+app.use('/search', searchCtrl);
 app.listen(3000, () => {
 	console.log('API running on port 3000');
 });
