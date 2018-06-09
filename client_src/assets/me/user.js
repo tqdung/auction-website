@@ -91,6 +91,7 @@ $('#btnSignIn').on('click', function(){
                         localStorage.setItem('UserInfo', JSON.stringify(USER_INFO));
                 
                         window.location.href = "./index.html";
+                        
                     });
             }
         }).fail(function(xhr, textStatus, error){
