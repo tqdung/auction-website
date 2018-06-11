@@ -522,21 +522,21 @@ if( $("#input-location2").length ){
 }
 */
 
-function previewImage(input) {
-    var ext = $(input).val().split('.').pop().toLowerCase();
-    if($.inArray(ext, ['gif','png','jpg','jpeg']) === -1) {
-        alert('invalid extension!');
-    }
-    else {
-        if (input.files && input.files[0]) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                $(input).parents(".profile-image").find(".image").attr("style", "background-image: url('" + e.target.result + "');" );
-            };
-            reader.readAsDataURL(input.files[0]);
-        }
-    }
-}
+// function previewImage(input) {
+//     var ext = $(input).val().split('.').pop().toLowerCase();
+//     if($.inArray(ext, ['gif','png','jpg','jpeg']) === -1) {
+//         alert('invalid extension!');
+//     }
+//     else {
+//         if (input.files && input.files[0]) {
+//             var reader = new FileReader();
+//             reader.onload = function(e) {
+//                 $(input).parents(".profile-image").find(".image").attr("style", "background-image: url('" + e.target.result + "');" );
+//             };
+//             reader.readAsDataURL(input.files[0]);
+//         }
+//     }
+// }
 
 // Viewport ------------------------------------------------------------------------------------------------------------
 

@@ -1,6 +1,7 @@
 var express = require('express'),
     axios = require('axios'),
-    nodemailer = require('nodemailer');
+    nodemailer = require('nodemailer'),
+    multer = require('multer');
 
 var userRepo = require('../repos/userRepo');
 var jwt = require('jsonwebtoken');
@@ -82,6 +83,8 @@ router.post('/login', (req, res) => {
     })
 });
 
+
+
 router.post('/captcha', (req, res) => {
     var secret = '6LeS5FMUAAAAAIbog9aGScVx58yvfXMZto2HjTR6';
     var captcha_response = req.body.captcha_response;
@@ -105,5 +108,29 @@ router.post('/captcha', (req, res) => {
             res.end('fail');
         });
 });
+
+// Upload avatar
+var staticDir = express.static(
+    path.resolve(__dirname, '../public')
+);
+app.use(staticDir);
+
+var storage = multer.diskStorage({
+    destination: function(req, file, cb) {
+        cb(null, './imgs/user_avt')
+    },
+    filename: function(req, file, cb) {
+        cb(null, file.originalname)
+    }
+});
+
+var upload = multer({
+    storage: storage
+});
+app.post('/upload', upload.array('photos', 1), (req, res) => {
+    res.end('upload done.');
+    res.json(req)
+});
+
 
 module.exports = router;

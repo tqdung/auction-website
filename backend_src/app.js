@@ -12,6 +12,7 @@ var app = express();
 app.use(morgan('dev'));
 app.use(cors());
 app.use(bodyParser.json());
+
 // app.get('/', (req, res) => {
 // 	// res.end('hello from nodejs');
 // 	var ret = {
@@ -19,6 +20,7 @@ app.use(bodyParser.json());
 // 	};
 // 	res.json(ret);
 // });
+
 
 app.use('/categories', categoryCtrl);
 app.use('/users', userCtrl);
