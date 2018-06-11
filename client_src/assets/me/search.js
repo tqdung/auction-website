@@ -1,10 +1,11 @@
 $('#btnSearch').on('click', function(){
-    var keywork = $("#keywork").val();
+
+    var keyword = $('#key').val();
     var body = {
-        serch_keywork: keywork
+        serch_keyword: keyword
     };
     $.ajax({
-        url: 'http://localhost:3000/search',
+        url: 'http://localhost:3000/search?' + keyword,
         dataType: 'json',
         timeout: 10000,
         type: 'POST',
@@ -12,7 +13,6 @@ $('#btnSearch').on('click', function(){
         data: JSON.stringify(body)
     }).done(function(data) {
         console.log(data);
-        console.log('haha');
         if (data.success) {
             // $.ajax({
             //     url: 'http://localhost:3000/search/',

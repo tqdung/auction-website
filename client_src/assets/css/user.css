@@ -2,4 +2,11 @@
 .img-product{
     width:100%;
 }
+.hide-id{
+    display: none;
+}
 
+.looking{
+    height: 70%;
+    width: 100%;
+}

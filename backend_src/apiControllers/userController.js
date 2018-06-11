@@ -1,7 +1,8 @@
 var express = require('express'),
     axios = require('axios'),
     nodemailer = require('nodemailer'),
-    multer = require('multer');
+    multer = require('multer'),
+    path = require('path');
 
 var userRepo = require('../repos/userRepo');
 var jwt = require('jsonwebtoken');
@@ -110,27 +111,5 @@ router.post('/captcha', (req, res) => {
 });
 
 // Upload avatar
-var staticDir = express.static(
-    path.resolve(__dirname, '../public')
-);
-app.use(staticDir);
-
-var storage = multer.diskStorage({
-    destination: function(req, file, cb) {
-        cb(null, './imgs/user_avt')
-    },
-    filename: function(req, file, cb) {
-        cb(null, file.originalname)
-    }
-});
-
-var upload = multer({
-    storage: storage
-});
-app.post('/upload', upload.array('photos', 1), (req, res) => {
-    res.end('upload done.');
-    res.json(req)
-});
-
 
 module.exports = router;
