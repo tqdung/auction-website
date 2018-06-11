@@ -7,9 +7,10 @@ $(function () {
     // 2 Dòng dưới, là vì ở user.js, sau khi login lên thì sẽ lưu thông tin người dùng ở localStorage
     // Qua bên này sẽ load lại thông tin
     // // Retrieve the object from storage
-    var UserInfo = localStorage.getItem('UserInfo');
+    var UserInfo = JSON.parse(localStorage.getItem('UserInfo'));
+    
     if(UserInfo){
-        console.log('UserInfo: ', JSON.parse(UserInfo));
+        console.log('UserInfo: ', UserInfo.UsName);
     }
 });
 
