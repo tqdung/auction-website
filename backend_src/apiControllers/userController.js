@@ -1,6 +1,8 @@
 var express = require('express'),
     axios = require('axios'),
-    nodemailer = require('nodemailer');
+    nodemailer = require('nodemailer'),
+    multer = require('multer'),
+    path = require('path');
 
 var userRepo = require('../repos/userRepo');
 var jwt = require('jsonwebtoken');
@@ -82,6 +84,8 @@ router.post('/login', (req, res) => {
     })
 });
 
+
+
 router.post('/captcha', (req, res) => {
     var secret = '6LeS5FMUAAAAAIbog9aGScVx58yvfXMZto2HjTR6';
     var captcha_response = req.body.captcha_response;
@@ -105,5 +109,7 @@ router.post('/captcha', (req, res) => {
             res.end('fail');
         });
 });
+
+// Upload avatar
 
 module.exports = router;

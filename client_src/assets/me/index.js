@@ -8,11 +8,24 @@ $(function () {
     // Qua bên này sẽ load lại thông tin
     // // Retrieve the object from storage
     var UserInfo = JSON.parse(localStorage.getItem('UserInfo'));
-    
     if(UserInfo){
-        console.log('UserInfo: ', UserInfo.UsName);
+        $("#dropdownMenuButton").text(UserInfo.UsName);
+        $(".not_login").hide();
+        $(".login_ok").show();
+    }
+    else{
+        $(".login_ok").css("display", "none");
+        $(".not_login").show();
     }
 });
+// Logout
+$("#log_out").on("click", function(){
+    localStorage.removeItem('UserInfo');
+    $(".not_login").show();
+    $(".login_ok").hide();
+    location.reload();
+});
+
 
 // $(function() {
 //     HandlebarsIntl.registerWith(Handlebars);

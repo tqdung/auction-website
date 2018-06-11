@@ -7,15 +7,6 @@
     font-family: 'Pacifico', cursive;
 }
 
-
-
-
-
-
-
-
-
-
 .hide-id{
     display: none;
 }
@@ -90,3 +81,4 @@ body
   -webkit-transform: translate(0px,5px);
 	border-bottom: 1px solid;
 }
+
