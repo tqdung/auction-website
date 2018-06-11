@@ -3,19 +3,11 @@ var searchRepo = require('../repos/searchRepo');
 
 var router = express.Router();
 //Tìm kiếm sản phẩm.
-router.get('/:keywork', (req, res) => {
-    searchRepo.customSearch( ).then(rows => {
-        var hasMore = rows.length > constants.PRODUCTS_PER_PAGE;
-        if (hasMore) {
-            rows.pop();
-        }
-        console.log(rows);
-        var data = {
-            products: rows,
-            hasMore: hasMore
-        }
-        res.json(data);
-        console.log(data);
+router.post('/', (req, res) => {
+    console.log(req.body.serch_keyword);
+    var key = req.body.serch_keyword;
+    searchRepo.customSearch(key).then(rows => {
+        res.json(rows);
     }).catch(err => {
         console.log(err);
         res.statusCode = 500;

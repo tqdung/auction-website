@@ -14,6 +14,7 @@ $('#btnSearch').on('click', function(){
     }).done(function(data) {
         console.log(data);
         if (data.success) {
+            alert('Thành công');
             // $.ajax({
             //     url: 'http://localhost:3000/search/',
             //     dataType: 'json',
@@ -22,10 +23,10 @@ $('#btnSearch').on('click', function(){
             //     contentType: 'application/json',
             //     data: JSON.stringify(body)
             // }).done(function(insertId){
-        swal("Thành công", "success")
-            .then(()=>{
-                window.location.href = "./search.html";
-            });
+        // swal("Thành công", "success")
+        //     .then(()=>{
+        //         window.location.href = "./search.html";
+        //     });
         //     }).fail(function(xhr, textStatus, error){
         //         swal(error, "Lỗi!", "error");
         //     })

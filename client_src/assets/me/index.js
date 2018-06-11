@@ -110,14 +110,59 @@ $.ajax({
 $(document).on('click', '#btnBid', function() {
     var id = $(this).attr("data-id")
     var body = {
-        proid_key: id
+        proid_key: id,
     };
     $.ajax({
         url: 'http://localhost:3000/bid/' + id,
         dataType: 'json',
         timeout: 10000,
+        type: 'POST',
         data: JSON.stringify(body)
-    }).done(function (data) {
-        console.log(data);
+    }).done(function (data, errorThrown) {
+        if (errorThrown) {
+            var PRO_INFO = data;
+            //Put the object into storage
+            localStorage.setItem('ProInfo', JSON.stringify(PRO_INFO));
+        } else {
+                alert("Failed " + errorThrown);
+            }
     });
 });
+
+$('#btnSearch').on('click', function(){
+
+    var keyword = $('#key').val();
+    var body = {
+        serch_keyword: keyword
+    };
+    $.ajax({
+        url: 'http://localhost:3000/search',
+        dataType: 'json',
+        timeout: 10000,
+        type: 'POST',
+        contentType: 'application/json',
+        data: JSON.stringify(body)
+    }).done(function(data) {
+        console.log(data);
+        if (data.success) {
+            alert('Thành công');
+            // $.ajax({
+            //     url: 'http://localhost:3000/search/',
+            //     dataType: 'json',
+            //     timeout: 10000,
+            //     type: 'POST',
+            //     contentType: 'application/json',
+            //     data: JSON.stringify(body)
+            // }).done(function(insertId){
+        // swal("Thành công", "success")
+        //     .then(()=>{
+            window.location.href = "./search.html";
+        //     });
+        //     }).fail(function(xhr, textStatus, error){
+        //         swal(error, "Lỗi!", "error");
+        //     })
+        // } else {
+        //     swal("Lỗi 2", "Lỗi 2!", "error");
+        }
+    });
+})
