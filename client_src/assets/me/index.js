@@ -103,3 +103,20 @@ $.ajax({
         $('.loader').hide();
     });
 };
+
+//Đấu giá sản phẩm.
+// $('#btnBid').on('click', function(){
+$(document).on('click', '#btnBid', function() {
+    var id = $(this).attr("data-id")
+    var body = {
+        proid_key: id
+    };
+    $.ajax({
+        url: 'http://localhost:3000/bid/' + id,
+        dataType: 'json',
+        timeout: 10000,
+        data: JSON.stringify(body)
+    }).done(function (data) {
+        console.log(data);
+    });
+});
