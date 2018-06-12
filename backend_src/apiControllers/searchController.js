@@ -4,10 +4,13 @@ var searchRepo = require('../repos/searchRepo');
 var router = express.Router();
 //Tìm kiếm sản phẩm.
 router.post('/', (req, res) => {
-    var key = req.body.serch_keyword;
+    var key = req.body.search_keyword;
     searchRepo.customSearch(key).then(rows => {
-        res.json(rows);
-        console.log(rows);
+        var data = {
+            products: rows
+        }
+        res.json(data);
+        console.log(data);
     }).catch(err => {
         console.log(err);
         res.statusCode = 500;

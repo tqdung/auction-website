@@ -75,6 +75,7 @@ var loadPro = function () {
     }).done(function (data) {
         var source = $('#product-template').html();
         var template = Handlebars.compile(source);
+        console.log(data);
         var html = template(data.products);
         $('#product-list-num').append(html);
         $('#product-list-num div[style]').fadeIn(200, function () {
@@ -146,7 +147,7 @@ $('#btnSearch').on('click', function(){
 
     var keyword = $('#key').val();
     var body = {
-        serch_keyword: keyword
+        search_keyword: keyword
     };
     $.ajax({
         url: 'http://localhost:3000/search',
@@ -158,8 +159,10 @@ $('#btnSearch').on('click', function(){
     }).done(function(data, errorThrown) {
         if (errorThrown) {
             var SEARCH_INFO = data;
+            console.log(SEARCH_INFO);
             //Put the object into storage
             localStorage.setItem('SearchInfo', JSON.stringify(SEARCH_INFO));
+            window.location.href = "./search.html";
         } else {
             swal("Không tìm thấy sản phẩm ", "error");
             }

@@ -34,6 +34,27 @@ body
     padding-left: 20%;
 }
 
+.items:not(.selectize-input).list .item .info {
+    position: absolute;
+    bottom: 5rem;
+    padding: 0;
+    left: 27rem;
+    z-index: 1;
+    height: 8rem;
+	overflow: hidden;
+	width: 30%;
+}
+.items:not(.selectize-input).list .item .info2 {
+    position: absolute;
+    bottom: 5rem;
+    padding: 0;
+    left: 27rem;
+    z-index: 1;
+    height: 8rem;
+	overflow: hidden;
+	width: 40%;
+	padding-left: 20%;
+}
 .action-button
 {
 	position: relative;

@@ -89,9 +89,7 @@ $('#btnSignIn').on('click', function(){
                         var USER_INFO = data[0];
                         //Put the object into storage
                         localStorage.setItem('UserInfo', JSON.stringify(USER_INFO));
-                
                         window.location.href = "./index.html";
-                        
                     });
             }
         }).fail(function(xhr, textStatus, error){
