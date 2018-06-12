@@ -1,37 +1,18 @@
-$('#btnSearch').on('click', function(){
+$(function () {
+    HandlebarsIntl.registerWith(Handlebars);
 
-    var keyword = $('#key').val();
-    var body = {
-        serch_keyword: keyword
-    };
-    $.ajax({
-        url: 'http://localhost:3000/search?' + keyword,
-        dataType: 'json',
-        timeout: 10000,
-        type: 'POST',
-        contentType: 'application/json',
-        data: JSON.stringify(body)
-    }).done(function(data) {
-        console.log(data);
-        if (data.success) {
-            alert('Thành công');
-            // $.ajax({
-            //     url: 'http://localhost:3000/search/',
-            //     dataType: 'json',
-            //     timeout: 10000,
-            //     type: 'POST',
-            //     contentType: 'application/json',
-            //     data: JSON.stringify(body)
-            // }).done(function(insertId){
-        // swal("Thành công", "success")
-        //     .then(()=>{
-        //         window.location.href = "./search.html";
-        //     });
-        //     }).fail(function(xhr, textStatus, error){
-        //         swal(error, "Lỗi!", "error");
-        //     })
-        // } else {
-        //     swal("Lỗi 2", "Lỗi 2!", "error");
-        }
-    });
-})
+    // // Load thông tin Product từ index.js
+    var SearchInfo = localStorage.getItem('SearchInfo');
+    var UserInfo = JSON.parse(localStorage.getItem('SearchInfo'));
+    console.log(SearchInfo);
+    if(SearchInfo){
+        console.log('ProInfo: ', UserInfo[0].ProID);
+        document.getElementById("product-id").innerHTML = UserInfo[0].ProID;
+        var link = UserInfo[0].HinhAnh;
+        document.getElementById("product-pic").src = UserInfo[0].HinhAnh;
+        // $('#product-pic').html('<img src="data:image/png;base64,' + UserInfo[0].HinhAnh + '" />');
+        document.getElementById("product-name").innerHTML = UserInfo[0].ProName;
+        document.getElementById("product-num").innerHTML = UserInfo[0].SlRaGia;
+        document.getElementById("product-price-now").innerHTML = UserInfo[0].GiaHienTai;
+    }
+});

@@ -106,7 +106,7 @@ INSERT INTO `products` VALUES (1,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Product
 (5,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',6,27500000,26000000,'2018-05-9 00:00:00','2018-11-20 00:00:00',1,1,1,'Mô tả iphone',2),
 (6,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',7,21000000,26000000,'2018-05-5 00:00:00','2018-10-31 00:00:00',1,1,1,'Mô tả iphone',2),
 (7,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',2,24000000,26000000,'2018-05-25 00:00:00','2018-08-31 00:00:00',1,1,1,'Mô tả iphone',2),
-(8,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',0,24500000,26000000,'2018-05-3 00:00:00','2018-07-20 00:00:00',1,1,1,'Mô tả iphone',2);
+(8,'Iphone 9 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',0,24500000,26000000,'2018-05-3 00:00:00','2018-07-20 00:00:00',1,1,1,'Mô tả iphone',2);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
