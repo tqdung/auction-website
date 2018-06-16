@@ -1,34 +1,28 @@
 var md5 = require('md5');
 var db = require('../fn/mysql-db');
-var mysql = require('mysql')
+var mysql = require('mysql');
 
-
-
-
+	
 exports.add = function (poco) {
-	// poco = {
-	// 	Username: 1,
-	// 	Password: 'new name',
-	// 	Name: 'name',
-	// 	Email: 'email',
-	// 	DOB: '2000-09-01',
-	// 	Permission: 0
-	// }
-
-	var md5_password = md5(poco.password);
-	var type_user = 1;
-	//var sql = `insert into users(f_Username, f_Password, f_Name, f_Email, f_DOB, f_Permission) values('${poco.Username}', '${md5_password}', '${poco.Name}', '${poco.Email}', '${poco.DOB}', ${poco.Permission})`;
-	var sql = mysql.format('insert into users(UsName, LoaiUser, Email, Password) values(?, ?, ?, ?)',
-		[poco.user_name, type_user , poco.user_email, md5_password]);
+	var pass_crypted = md5(poco.password);
+	var sql = mysql.format('insert into users (user_name, email, password) values(?, ?, ?)',
+	[poco.name, poco.email, pass_crypted]);
 	return db.insert(sql);
 }
-exports.login = function(info){
-	var pass = md5(info.password);
-	var sql= mysql.format('select * from users where Email=? and Password=? and active=1',[info.user_email, pass]);
+exports.login = function (poco) {
+	var pass = md5(poco.password);
+	var sql = mysql.format('select * from users where email=? and password=? and type=1', [poco.email, pass]);
 	return db.load(sql);
 }
-
-exports.confirm = function(email){
-	var sql= mysql.format('update users set active=1 where Email=?',[email]);
+exports.edit = function (info) {
+	var sql = mysql.format('update users set user_name=?, password=? where email=?', [info.user_name, md5(info.new_pass),info.email]);
+	return db.load(sql);
+}
+exports.checkPassword = function(info){
+	var sql = mysql.format('select * from users where email=? and password=?', [info.email, md5(info.old_password)]);
+	return db.load(sql);
+}
+exports.confirm = function (email) {
+	var sql = mysql.format('update users set type=1 where email=?', [email]);
 	return db.load(sql);
 }

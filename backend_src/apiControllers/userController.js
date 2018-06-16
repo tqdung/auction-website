@@ -22,12 +22,11 @@ var smtpTransport = nodemailer.createTransport({
     }
 });
 var rand, mailOptions, host, link;
-
 router.post('/', (req, res, next) => {
     userRepo.add(req.body)
         .then(insertId => {
             res.statusCode = 201;
-            res.json(req.body);
+            res.json(insertId);
         })
         .catch(err => {
             console.log(err);
@@ -37,15 +36,14 @@ router.post('/', (req, res, next) => {
     next();
 }, function (req, res) {
     //rand = Math.floor((Math.random() * 100) + 54);
-    var email = req.body.user_email;
+    var email = req.body.email;
     var email_token = jwt.sign({
         exp: Math.floor(Date.now() / 1000) + (60 * 60 * 2),
         data: email
     }, SECRET_KEY);
-    host = req.get('host');
     link = "http://" + req.get('host') + "/users/verify/" + email_token;
     mailOptions = {
-        to: req.body.user_email,
+        to: email,
         subject: "Please confirm your Email account. ",
         html: "Hello,<br> Please Click on the link to verify your email.<br><a href=" + link + ">Click here to verify</a>"
     }
@@ -54,21 +52,21 @@ router.post('/', (req, res, next) => {
         if (error) {
             console.log(error);
             res.end("error");
-        } else {
-            console.log("Message sent: " + response.message);
-            res.end("sent");
         }
-    });
+        console.log('Message sent: %s', info.messageId);
+        // Preview only available when sending through an Ethereal account
+        console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
+    });    
 });
 
 router.get('/verify/:token', function (req, res) {
     // còn nhiều thuộc tính để có thời gian sẽ optimate(verify là json)
     verify = jwt.decode(req.params.token);
     email = verify.data
-    userRepo.confirm(email).then(()=>{
+    userRepo.confirm(email).then(() => {
         res.status = 200;
         res.json(email + " đã được xác nhận");
-    }).catch(err=>{
+    }).catch(err => {
         console.log(err);
         res.json(err);
     })
@@ -76,7 +74,7 @@ router.get('/verify/:token', function (req, res) {
 
 router.post('/login', (req, res) => {
     userRepo.login(req.body).then(rows => {
-        res.json(rows);
+        res.json(rows);     
     }).catch(err => {
         console.log(err);
         res.statusCode = 404;
@@ -84,6 +82,37 @@ router.post('/login', (req, res) => {
     })
 });
 
+router.post('/edit-profile', (req, res, next) => {
+    userRepo.checkPassword(req.body).then(rows => {
+        if(rows.length === 0){
+            var mes = {
+                message: 'Không tìm thấy thông tin phù hợp'
+            }
+            res.status = 404;
+            res.json(mes);
+        }
+        else{
+            next();
+        }
+    }).catch(error => {
+        console.log(error);
+        res.statusCode = 500;
+        res.end();
+    });
+}, (req, res)=>{
+    userRepo.edit(req.body).then(rows => {
+        res.statusCode = 200;
+        // res.json(rows.changedRows)
+        mess = {
+            message: "Đã cập nhật thành công"
+        }
+        console.log(mess.message);
+        res.json(mess);
+    }).catch(error => {
+        res.statusCode = 500;
+        res.json(error);
+    })
+} );
 
 
 router.post('/captcha', (req, res) => {

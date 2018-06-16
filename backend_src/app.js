@@ -14,13 +14,13 @@ app.use(morgan('dev'));
 app.use(cors());
 app.use(bodyParser.json());
 
-// app.get('/', (req, res) => {
-// 	// res.end('hello from nodejs');
-// 	var ret = {
-// 		msg: 'hello from nodejs api'
-// 	};
-// 	res.json(ret);
-// });
+app.get('/', (req, res) => {
+	// res.end('hello from nodejs');
+	var ret = {
+		msg: 'hello from nodejs api'
+	};
+	res.json(ret);
+});
 
 
 app.use('/categories', categoryCtrl);
