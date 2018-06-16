@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<meta name="author" content="ThemeStarz">
+
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|Varela+Round" rel="stylesheet">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.css" type="text/css">
+    <link rel="stylesheet" href="assets/fonts/font-awesome.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/selectize.css" type="text/css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/user.css">
+
+	<title>Craigs - Easy Buy & Sell Listing HTML Template</title>
+
+</head>
+<body>
+    <div class="page sub-page">
+        <!--*********************************************************************************************************-->
+        <!--************ HERO ***************************************************************************************-->
+        <!--*********************************************************************************************************-->
+        <header class="hero">
+                <div class="hero-wrapper">
+                    <!--============ Secondary Navigation ===============================================================-->
+                    <div class="secondary-navigation">
+                        <div class="container">
+                            <ul class="left">
+                                <li>
+                                    <span>
+                                        <i class="fa fa-phone"></i> +1 123 456 789
+                                    </span>
+                                </li>
+                            </ul>
+                            <!--end left-->
+                            <ul class="right">
+                                <div class="login_ok">
+                                    <li>
+                                        <div class="dropdown">
+                                            <button class="btn btn-info dropdown-toggle text-white" type="button" id="username" data-toggle="dropdown"
+                                                aria-haspopup="true" aria-expanded="false">
+                                            </button>
+                                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                                <a class="dropdown-item text-primary" href="./my-profile.html">
+                                                    <h3>Chỉnh sửa thông tin</h3>
+                                                </a>
+                                                <a id="log_out" class="dropdown-item text-primary" href="javascript:;">
+                                                    <h3>Đăng xuất</h3>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </div>
+                                <div class="not_login">
+                                    <li class="nav-item">
+                                        <a href="sign-in.html" class="nav-link">Sign In</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a href="register.html" class="nav-link">Register</a>
+                                    </li>
+                                </div>
+                            </ul>
+                            <!--end right-->
+                        </div>
+                        <!--end container-->
+                    </div>
+                <!--============ End Secondary Navigation ===========================================================-->
+                <!--end collapse-->
+                <div class="main-navigation">
+                        <div class="container">
+                            <nav class="navbar navbar-expand-lg navbar-light">
+                                <a class="navbar-brand" href="index.html">
+                                    <img src="assets/img/logo.png" alt="">
+                                </a>
+                                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar" aria-controls="navbar" aria-expanded="false"
+                                    aria-label="Toggle navigation">
+                                    <span class="navbar-toggler-icon"></span>
+                                </button>
+                                <!--end navbar-collapse-->
+                            </nav>
+                            <!--end navbar-->
+                        </div>
+                        <!--end container-->
+                    </div>
+                <!--end collapse-->
+                <!--============ End Hero Form ======================================================================-->
+                <!--============ Page Title =========================================================================-->
+                <div class="page-title">
+                        <div class="container clearfix">
+                            <ol class="breadcrumb breadcrumb-custom">
+                                <li class="breadcrumb-item"><a href="./index.html">Trang chủ</a></li>
+                                <li class="breadcrumb-item active">Đăng bán sản phẩm</li>
+                            </ol>
+                        </div>
+                        <!--end container-->
+                    </div>
+                <!--============ End Hero Form ======================================================================-->
+                <!--============ Page Title =========================================================================-->
+                <div class="page-title">
+                    <div class="container">
+                        <h1>Đăng bán sản phẩm</h1>
+                    </div>
+                    <!--end container-->
+                </div>
+                <!--============ End Page Title =====================================================================-->
+                <div class="background"></div>
+                <!--end background-->
+            </div>
+            <!--end hero-wrapper-->
+        </header>
+        <!--end hero-->
+
+        <!--*********************************************************************************************************-->
+        <!--************ CONTENT ************************************************************************************-->
+        <!--*********************************************************************************************************-->
+        <section class="content">
+            <section class="block">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3">
+                                <nav class="nav flex-column side-nav">
+                                    <a class="nav-link icon" href="my-profile.html">
+                                        <i class="fa fa-user"></i>Chỉnh sửa thông tin cá nhân
+                                    </a>
+                                    <a class="nav-link icon" href="my-ads.html">
+                                        <i class="fa fa-heart"></i>Danh sách yêu thích
+                                    </a>
+                                    <a class="nav-link active icon" href="sell.html">
+                                        <i class="fa fa-recycle"></i>Đăng bán sản phẩm
+                                    </a>
+                                    <a class="nav-link icon" href="sold-items.html">
+                                        <i class="fa fa-check"></i>Sản phẩm đã & đang bán
+                                    </a>
+                                </nav>
+                        </div>
+                        <!--end col-md-3-->
+                        <div class="col-md-9">
+                            <form class="form">
+                                <div class="row justify-content-center">
+                                    <div class="col-md-12">
+                                        <div class="col-md-6 align-col">
+                                            <div class="form-group">
+                                                    <label for="price_start" class="col-form-label required">Giá khởi điểm</label>
+                                                    <input name="price_start" type="text" class="form-control" id="price_start" placeholder="Nhập giá khởi điểm" required>
+                                                </div>
+                                            <!--end form-group-->
+                                            <div class="form-group description">
+                                                    <label for="review" class="col-form-label">Mô tả</label>
+                                                    <input name="review" type="html" class="form-control review" id="review" placeholder="Nhập mô tả cho sản phẩm">
+                                                </div>
+                                                <button type="submit" class="btn btn-primary float-right">Đăng bán</button>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <!--end form-group-->
+                                            <!--end form-group-->
+                                            <div class="form-group">
+                                                    <label for="name_product" class="col-form-label required">Tên sản phẩm</label>
+                                                    <input name="name_product" type="text" class="form-control" id="name_product" placeholder="Nhập tên sản phẩm" required>
+                                                </div>
+                                            <div class="form-group">
+                                                <label for="price_buying_now" class="col-form-label">Giá mua ngay (nếu cần)</label>
+                                                <input name="price_buying_now" type="text" class="form-control" id="price_buying_now" placeholder="Giá bán ngay lập tức">
+                                            </div>
+                                            <!--end form-group-->
+                                            <div class="form-group">
+                                                    <label for="time_sell" class="col-form-label required">Thời gian bán</label>
+                                                    <input name="time_sell" type="text" class="form-control" id="time_sell" placeholder="Sản phẩm đươc bán trong vòng bao nhiêu ngày?" required>
+                                                </div>
+                                            <!--end form-group-->
+                                            <div class="form-group">
+                                                    <label for="price_step" class="col-form-label required">Bước giá</label>
+                                                    <input name="price_step" type="text" class="form-control" id="price_step" placeholder="Nhập khoảng giá cho mỗi lần đấu giá" required>
+                                                </div>
+                                            
+                                        </div>
+                                        <!--end form-group-->
+                                        
+                                    </div>
+                                    <!--end col-md-6-->
+                                </div>
+                            </form>
+                        </div>
+                        <!--end col-md-9-->
+                    </div>
+                    <!--end row-->
+                </div>
+                <!--end container-->
+            </section>
+            <!--end block-->
+        </section>
+        <!--end content-->
+
+        <!--*********************************************************************************************************-->
+        <!--************ FOOTER *************************************************************************************-->
+        <!--*********************************************************************************************************-->
+        <footer class="footer">
+                <div class="wrapper">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-5">
+                                <a href="#" class="brand">
+                                    <img src="assets/img/logo.png" alt="">
+                                </a>
+                                <p>
+                                    Website đấu giá trực tuyến
+                                </p>
+                            </div>
+                            <!--end col-md-5-->
+                            <div class="col-md-3">
+                                <h2>Thiết kế bởi</h2>
+                                <div class="row">
+                                    <div class="col-md-6 col-sm-6">
+                                        <nav>
+                                            <ul class="list-unstyled">
+                                                <li>
+                                                    <a href="#">Cù Trường Duy</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Trần Quốc Dũng</a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">Xuân Bách</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                            <!--end col-md-3-->
+                            <div class="col-md-4">
+                                <h2>Liên hệ</h2>
+                                <address>
+                                    <figure>
+                                        Facebook
+                                        <br> 
+                                        <a href="https://www.facebook.com/cutruongduy97"></a>
+                                    </figure>
+                                    <br>
+                                    <strong>Email:</strong>
+                                    <a href="#">cutruongduy97@gmail.com</a>
+                                    <br>
+                                    <br>
+                                </address>
+                            </div>
+                            <!--end col-md-4-->
+                        </div>
+                        <!--end row-->
+                    </div>
+                    <div class="background">
+                        <div class="background-image original-size">
+                            <img src="assets/img/footer-background-icons.jpg" alt="">
+                        </div>
+                        <!--end background-image-->
+                    </div>
+                    <!--end background-->
+                </div>
+            </footer>
+        <!--end footer-->
+    </div>
+    <!--end page-->
+
+	<script src="assets/js/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="assets/js/popper.min.js"></script>
+	<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBEDfNcQRmKQEyulDN8nGWjLYPm8s4YB58&libraries=places"></script>
+	<script src="assets/js/selectize.min.js"></script>
+	<script src="assets/js/masonry.pkgd.min.js"></script>
+	<script src="assets/js/icheck.min.js"></script>
+	<script src="assets/js/jquery.validate.min.js"></script>
+	<script src="assets/js/custom.js"></script>
+    <script src="assets/me/sell.js"></script>
+</body>
+</html>

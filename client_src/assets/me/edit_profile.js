@@ -7,8 +7,15 @@ $(document).ready(function(){
         $("#name").val(UserInfo.user_name)
         $("#txtbox").prop("disabled",true);
         $("#email").val(UserInfo.email);
+        $("#username").text(UserInfo.user_name);
+        $(".not_login").hide();
+        $(".login_ok").show();
     }
-})
+    else{
+        $(".login_ok").css("display", "none");
+        $(".not_login").show();
+    }
+});
 
 $("#btnSavePasswordChanged").on("click", function(){
     var isValid = false;

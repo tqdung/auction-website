@@ -2,7 +2,6 @@ var CUR_PAGE = 1;
 
 $(function () {
     HandlebarsIntl.registerWith(Handlebars);
-    
     loadPro();
     // loadCateg();
     // 2 Dòng dưới, là vì ở user.js, sau khi login lên thì sẽ lưu thông tin người dùng ở localStorage
@@ -107,7 +106,7 @@ var loadPro = function () {
         $('#product-list-time').append(html3);
         $('#product-list-time div[style]').fadeIn(200, function () {
             $(this).removeAttr('style');
-        }, console.log($('#product-list-time').children()));
+        });
     });
     $.ajax({
         url: 'http://localhost:3000/products?page=' + CUR_PAGE,

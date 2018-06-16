@@ -14,7 +14,9 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-
+DROP database IF EXISTS auction;
+create database auction;
+use auction;
 --
 -- Table structure for table `detail`
 --
@@ -126,7 +128,11 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Người Mua A',0,NULL,'',NULL),(2,'Người Bán B',1,NULL,'',NULL),(3,'Trần Quốc Dũng',1,'dungtran6665@gmail.com','e10adc3949ba59abbe56e057f20f883e',1),(52,'Lép Đẹp Trai',0,'tqdungit97@gmail.com','e10adc3949ba59abbe56e057f20f883e',1);
+INSERT INTO `users` VALUES (1,'Người Mua A',0,NULL,'',NULL),
+(2,'Người Bán B',1,NULL,'',NULL),
+(3,'Trần Quốc Dũng',1,'dungtran6665@gmail.com','e10adc3949ba59abbe56e057f20f883e',1),
+(52,'Lép Đẹp Trai',0,'tqdungit97@gmail.com','e10adc3949ba59abbe56e057f20f883e',1),
+(4,'Trường Duy',0,'cutruongduy97@gmail.com','e10adc3949ba59abbe56e057f20f883e',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
