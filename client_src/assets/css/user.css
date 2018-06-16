@@ -10,11 +10,25 @@
 .hide-id{
     display: none;
 }
+.underline-detail{
+	margin-right: 50px;
+}
+
+.underline-bid{
+	color: white !important;
+}
+
+.select-categ{
+	padding-top: 20px;
+}
 
 .looking{
     height: 70%;
-    width: 100%;
+	width: 100%;
+	padding-top: 15px !important;
 }
+
+
 
 .detail{
     float: right;

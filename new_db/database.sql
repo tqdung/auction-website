@@ -52,7 +52,7 @@ DROP TABLE IF EXISTS `loaisp`;
 CREATE TABLE `loaisp` (
   `CatID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `CatName` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `HinhAnh` binary(1) NOT NULL,
+  `HinhAnh`  text COLLATE utf8_unicode_ci NOT NULL,
   `MoTa` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`CatID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -64,7 +64,8 @@ CREATE TABLE `loaisp` (
 
 LOCK TABLES `loaisp` WRITE;
 /*!40000 ALTER TABLE `loaisp` DISABLE KEYS */;
-INSERT INTO `loaisp` VALUES (1,'Thiết bị điện tử - viễn thông','h','Bao gồm các sản phẩm thuộc lĩnh vực công nghệ, điện tử, viễn thông, . . .'),(2,'Thiết bị gia dụng','h','Bao gồm các sản phẩm thuộc lĩnh vực đồ điện, gia dụng, . . .');
+INSERT INTO `loaisp` VALUES (1,'Thiết bị điện tử - viễn thông','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg','Bao gồm các sản phẩm thuộc lĩnh vực công nghệ, điện tử, viễn thông, . . .'),
+(2,'Thiết bị gia dụng','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg','Bao gồm các sản phẩm thuộc lĩnh vực đồ điện, gia dụng, . . .');
 /*!40000 ALTER TABLE `loaisp` ENABLE KEYS */;
 UNLOCK TABLES;
 

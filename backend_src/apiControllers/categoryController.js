@@ -5,7 +5,10 @@ var router = express.Router();
 
 router.get('/', (req, res) => {
     categoryRepo.loadAll().then(rows => {
-        res.json(rows);
+		data={
+			categs:rows,
+		}
+        res.json(data);
     }).catch(err => {
         console.log(err);
         res.statusCode = 500;

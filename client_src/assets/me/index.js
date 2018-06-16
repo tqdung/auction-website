@@ -2,8 +2,9 @@ var CUR_PAGE = 1;
 
 $(function () {
     HandlebarsIntl.registerWith(Handlebars);
+    
     loadPro();
-
+    // loadCateg();
     // 2 Dòng dưới, là vì ở user.js, sau khi login lên thì sẽ lưu thông tin người dùng ở localStorage
     // Qua bên này sẽ load lại thông tin
     // // Retrieve the object from storage
@@ -81,19 +82,19 @@ var loadPro = function () {
         $('#product-list-num div[style]').fadeIn(200, function () {
             $(this).removeAttr('style');
         });
-$.ajax({
-    url: 'http://localhost:3000/products?page=' + CUR_PAGE,
-    dataType: 'json',
-    data:{type:'price'},
-    timeout: 10000
-}).done(function (data) {
-    var source2 = $('#product-template').html();
-    var template2 = Handlebars.compile(source2);
-    var html2 = template(data.products);
-    $('#product-list-price').append(html2);
-    $('#product-list-price div[style]').fadeIn(200, function () {
-        $(this).removeAttr('style');
-    });
+    $.ajax({
+        url: 'http://localhost:3000/products?page=' + CUR_PAGE,
+        dataType: 'json',
+        data:{type:'price'},
+        timeout: 10000
+    }).done(function (data) {
+        var source2 = $('#product-template').html();
+        var template2 = Handlebars.compile(source2);
+        var html2 = template(data.products);
+        $('#product-list-price').append(html2);
+        $('#product-list-price div[style]').fadeIn(200, function () {
+            $(this).removeAttr('style');
+        });
     $.ajax({
         url: 'http://localhost:3000/products?page=' + CUR_PAGE,
         dataType: 'json',
@@ -108,7 +109,22 @@ $.ajax({
             $(this).removeAttr('style');
         });
     });
-});
+    $.ajax({
+        url: 'http://localhost:3000/products?page=' + CUR_PAGE,
+        dataType: 'json',
+        data:{type:'categ'},
+        timeout:10000
+    }).done(function(data){
+        var source4 = $('#product-categ').html();
+        var template4 = Handlebars.compile(source4);
+        console.log(data);
+        var html4 = template4(data.categs);
+        $('#product-list-categ').append(html4);
+        $('#product-list-categ div[style]').fadeIn(200, function () {
+            $(this).removeAttr('style');
+        });
+    });
+    });
 
         CUR_PAGE++;
         if (data.hasMore === false) {
@@ -143,14 +159,22 @@ $(document).on('click', '#btnBid', function() {
     });
 });
 
-$('#btnSearch').on('click', function(){
 
+function getval(sel)
+{
+    alert(sel.value);
+}
+$('#btnSearch').on('click', function(){
+    $('.loadersearch').show();
+    $( "#category" ).val();
+    categ = $( "#category option:selected" ).text();
     var keyword = $('#key').val();
     var body = {
-        search_keyword: keyword
+        search_keyword: keyword,
+        search_categ: categ
     };
     $.ajax({
-        url: 'http://localhost:3000/search',
+        url: 'http://localhost:3000/search?page=' + CUR_PAGE,
         dataType: 'json',
         timeout: 10000,
         type: 'POST',
@@ -167,4 +191,11 @@ $('#btnSearch').on('click', function(){
             swal("Không tìm thấy sản phẩm ", "error");
             }
     });
+
+    CUR_PAGE++;
+        if (data.hasMore === false) {
+            $('#btnMore').hide();
+        }
+
+        $('.loadersearch').hide();
 });

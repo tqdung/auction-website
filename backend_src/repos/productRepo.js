@@ -5,7 +5,11 @@ exports.loadAll = function() {
     var sql = 'select * from products';
     return db.load(sql);
 }
-
+exports.loadAllCateg = function() {
+	var sql = 'select * from loaisp';
+    return db.load(sql);
+    console.log(sql);
+}
 exports.loadProOrNum = function(page) {
     var offset = (page - 1) * constants.PRODUCTS_PER_PAGE;
     var sql = `SELECT

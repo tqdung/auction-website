@@ -70,6 +70,18 @@ router.get('/', (req, res) => {
             res.end('View error log on console.');
         });
     }
+    if (req.query.type === 'categ'){
+        productRepo.loadAllCateg().then(rows => {
+            var data = {
+                categs: rows,
+            }
+            res.json(data);
+        }).catch(err => {
+            console.log(err);
+            res.statusCode = 500;
+            res.end('View error log on console.');
+        });
+    }
 
 });
 

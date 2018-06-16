@@ -1,3 +1,5 @@
+var CUR_PAGE = 1;
+
 $(function () {
     HandlebarsIntl.registerWith(Handlebars);
     // // Load thông tin Product từ index.js
@@ -14,5 +16,56 @@ $(function () {
             $(this).removeAttr('style');
         });
     }
-
+    var UserInfo = JSON.parse(localStorage.getItem('UserInfo'));
+    if(UserInfo){
+        $("#dropdownMenuButton").text(UserInfo.UsName);
+        $(".not_login").hide();
+        $(".login_ok").show();
+    }
+    else{
+        $(".login_ok").css("display", "none");
+        $(".not_login").show();
+    }
 });
+
+$(function () {
+    HandlebarsIntl.registerWith(Handlebars);
+    load();
+});
+
+var load = function() {
+    $('.loadersearch').show();
+};
+
+//Đấu giá sản phẩm.
+// $('#btnBid').on('click', function(){
+    $(document).on('click', '#btnBid', function() {
+        $('.loadersearch').show();
+        var id = $(this).attr("data-id")
+        var body = {
+            proid_key: id,
+        };
+        $.ajax({
+            url: 'http://localhost:3000/bid/' + id,
+            dataType: 'json',
+            timeout: 10000,
+            type: 'POST',
+            data: JSON.stringify(body)
+        }).done(function (data, errorThrown) {
+            if (errorThrown) {
+                var PRO_INFO = data;
+                //Put the object into storage
+                localStorage.setItem('ProInfo', JSON.stringify(PRO_INFO));
+            } else {
+                    alert("Failed " + errorThrown);
+                }
+        });
+        
+        CUR_PAGE++;
+        if (data.hasMore === false) {
+            $('#btnMore').hide();
+        }
+
+        $('.loadersearch').hide();
+    });
+    

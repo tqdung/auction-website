@@ -6,8 +6,10 @@ var router = express.Router();
 router.post('/:id', (req, res) => {
     if (req.params.id) {
         var id = req.params.id;
-        bidRepo.load(id).then(rows => {
+        var sell_id = req.params.id;
+        bidRepo.load(id, sell_id).then(rows => {
         res.json(rows);
+        console.log(rows);
         }).catch(err => {
             console.log(err);
             res.statusCode = 500;
