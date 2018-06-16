@@ -10,9 +10,11 @@
     <link rel="stylesheet" href="assets/fonts/font-awesome.css" type="text/css">
     <link rel="stylesheet" href="assets/css/selectize.css" type="text/css">
     <link rel="stylesheet" href="assets/css/owl.carousel.min.css" type="text/css">
-    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/stylebid.css">
     <link rel="stylesheet" href="assets/css/user.css">
-
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 	<title>Craigs - Easy Buy & Sell Listing HTML Template</title>
 
 </head>
@@ -69,7 +71,7 @@
                     <!--============ Main Navigation ====================================================================-->
                     <div class="main-navigation">
                         <div class="container">
-                            <nav class="navbar navbar-expand-lg navbar-light justify-content-between">
+                            <nav class="navbar navbar-expand-lg navbar-light">
                                 <a class="navbar-brand" href="index.html">
                                     <img src="assets/img/logo.png" alt="">
                                 </a>
@@ -150,12 +152,86 @@
                             
                             <!--end Difference-->
                             <hr>
-                            <div class="col-md-12 difference">
-                                    <a href="#" class="action-button shadow animate blue">Danh sách đấu giá</a>
-                                    <a href="#" class="action-button shadow animate red">Ra giá</a>
-                                    <!-- <a href="#" class="action-button shadow animate green">Are</a>
-                                    <a href="#" class="action-button shadow animate yellow">You?</a> -->
+                            <!-- Trigger the modal with a button -->
+                            <div>
+                                <button type="button" class="btn btn-info btn-lg btn-bid" data-toggle="modal" data-target="#bidPrice">Đấu giá</button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="bidPrice" role="dialog">
+                                    <div class="modal-dialog">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h4 class="modal-title text-danger">Thông tin đấu giá</h4>
+                                        <button type="button" class="close btnclose" data-dismiss="modal">&times;</button>
+                                        
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label class="col-sm-8 control-label">Giá hiện tại</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" id="priceInput" type="text" placeholder="Giá hiện tại">
+                                                </div>
+                                                <label class="col-sm-8 control-label">Giá của bạn</label>
+                                                <div class="col-sm-10">
+                                                    <input class="form-control" id="priceInput" type="text" placeholder="Nhập giá">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Thoát</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Ra giá</button>
+                                        </div>
+                                    </div>
+
+                                    </div>
                                 </div>
+                            <button type="button" class="btn btn-info btn-lg btn-bid2" data-toggle="modal" data-target="#historyBid">Lịch sử đấu giá</button>
+    
+                                <!-- Modal -->
+                                <div class="modal fade" id="historyBid" role="dialog">
+                                    <div class="modal-dialog modal-lg">
+
+                                    <!-- Modal content-->
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h4 class="modal-title text-danger">Lịch sử đấu giá</h4>
+                                        <button type="button" class="close btnclose" data-dismiss="modal">&times;</button>
+
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <div class="col-sm-12 control-label">
+                                                    <label class="col-sm-4 control-label">Ngày</label>
+                                                    <label class="col-sm-4 control-label">Người ra giá</label>
+                                                    <label class="col-sm-3 control-label">Số tiền</label>
+                                                </div>
+
+                                                <div class="col-sm-12">
+                                                    <div class="col-sm-4">
+                                                        <input class="form-control" id="datehis" type="text" placeholder="Ngày">
+                                                    </div>
+
+                                                    <div class="col-sm-4">
+                                                        <input class="form-control" id="ownhis" type="text" placeholder="Người ra giá">
+                                                    </div>
+
+                                                    <div class="col-sm-3">
+                                                        <input class="form-control" id="pricehis" type="text" placeholder="Số tiền">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Thoát</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal">Ra giá</button>
+                                        </div>
+                                    </div>
+
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <!--============ End Listing Detail =========================================================-->
                         <!--============ Sidebar ====================================================================-->
@@ -225,69 +301,64 @@
         <!--*********************************************************************************************************-->
         <!--************ FOOTER *************************************************************************************-->
         <!--*********************************************************************************************************-->
-        <footer class="footer">
-                <div class="wrapper">
-                    <div class="container">
+        <div class="container">
+                <div class="row">
+                    <div class="col-md-5">
+                        <a href="#" class="brand">
+                            <img src="assets/img/logo.png" alt="">
+                        </a>
+                        <p>
+                            Website đấu giá trực tuyến
+                        </p>
+                    </div>
+                    <!--end col-md-5-->
+                    <div class="col-md-3">
+                        <h2>Thiết kế bởi</h2>
                         <div class="row">
-                            <div class="col-md-5">
-                                <a href="#" class="brand">
-                                    <img src="assets/img/logo.png" alt="">
-                                </a>
-                                <p>
-                                    Website đấu giá trực tuyến
-                                </p>
+                            <div class="col-md-6 col-sm-6">
+                                <nav>
+                                    <ul class="list-unstyled">
+                                        <li>
+                                            <a href="#">Cù Trường Duy</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Trần Quốc Dũng</a>
+                                        </li>
+                                        <li>
+                                            <a href="#">Xuân Bách</a>
+                                        </li>
+                                    </ul>
+                                </nav>
                             </div>
-                            <!--end col-md-5-->
-                            <div class="col-md-3">
-                                <h2>Thiết kế bởi</h2>
-                                <div class="row">
-                                    <div class="col-md-6 col-sm-6">
-                                        <nav>
-                                            <ul class="list-unstyled">
-                                                <li>
-                                                    <a href="#">Cù Trường Duy</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Trần Quốc Dũng</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Xuân Bách</a>
-                                                </li>
-                                            </ul>
-                                        </nav>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--end col-md-3-->
-                            <div class="col-md-4">
-                                <h2>Liên hệ</h2>
-                                <address>
-                                    <figure>
-                                        Facebook
-                                        <br> 
-                                        <a href="https://www.facebook.com/cutruongduy97"></a>
-                                    </figure>
-                                    <br>
-                                    <strong>Email:</strong>
-                                    <a href="#">cutruongduy97@gmail.com</a>
-                                    <br>
-                                    <br>
-                                </address>
-                            </div>
-                            <!--end col-md-4-->
                         </div>
-                        <!--end row-->
                     </div>
-                    <div class="background">
-                        <div class="background-image original-size">
-                            <img src="assets/img/footer-background-icons.jpg" alt="">
-                        </div>
-                        <!--end background-image-->
+                    <!--end col-md-3-->
+                    <div class="col-md-4">
+                        <h2>Liên hệ</h2>
+                        <address>
+                            <figure>
+                                Facebook
+                                <br> 
+                                <a href="https://www.facebook.com/cutruongduy97"></a>
+                            </figure>
+                            <br>
+                            <strong>Email:</strong>
+                            <a href="#">cutruongduy97@gmail.com</a>
+                            <br>
+                            <br>
+                        </address>
                     </div>
-                    <!--end background-->
+                    <!--end col-md-4-->
                 </div>
-            </footer>
-            <!--end footer-->
+                <!--end row-->
+            </div>
+            <div class="background">
+                <div class="background-image original-size">
+                    <img src="assets/img/footer-background-icons.jpg" alt="">
+                </div>
+                <!--end background-image-->
+            </div>
+            <!--end background-->
         </div>
     <!--end page-->
 
@@ -304,14 +375,6 @@
     <script src="assets/handlebars-intl-1.1.2/handlebars-intl.min.js"></script>
     <script src="assets/me/bid.js"></script>
 
-    <script>
-        var latitude = 51.511971;
-        var longitude = -0.137597;
-        var markerImage = "assets/img/map-marker.png";
-        var mapTheme = "light";
-        var mapElement = "map-small";
-        simpleMap(latitude, longitude, markerImage, mapTheme, mapElement);
-    </script>
 
 </body>
 </html>
