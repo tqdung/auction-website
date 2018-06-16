@@ -31,30 +31,6 @@ exports.load = function (sql) {
 
 	return d.promise;
 }
-
-// exports.load = function(sql, fn) {
-
-//     var cn = mysql.createConnection({
-// 		host: _HOST,
-// 		port: _PORT,
-// 		user: _USER,
-// 		password: _PWD,
-// 		database: _DB
-// 	});
-
-// 	cn.connect();
-// 	cn.query(sql, function (error, rows, fields) {
-// 		if (error) {
-// 			console.log(error);
-// 		} else {
-// 			// console.log(rows);
-// 			fn(rows);
-// 		}
-
-// 		cn.end();
-// 	});
-// }
-
 exports.insert = function (sql) {
 	var d = q.defer();
 	
@@ -103,4 +79,4 @@ exports.delete = function (sql) {
 	});
 
 	return d.promise;	
-}
+};

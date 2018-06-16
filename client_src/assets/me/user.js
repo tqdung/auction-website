@@ -13,8 +13,8 @@ $('#btnRegister').on('click', function(){
         // console.log(captcha_response);
         var body = {
             captcha_response: grecaptcha.getResponse(),
-            user_name: name,
-            user_email: email,
+            name: name,
+            email: email,
             password: pass
         };
         $.ajax({
@@ -65,7 +65,7 @@ $('#btnSignIn').on('click', function(){
         var pass = $("#password").val();
 
         var body = {
-            user_email: email,
+            email: email,
             password: pass
         };
         $.ajax({

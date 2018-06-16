@@ -42,7 +42,7 @@
                             <div class="login_ok">
                                 <li>
                                     <div class="dropdown">
-                                        <button class="btn btn-info dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+                                        <button class="btn btn-info dropdown-toggle text-white" type="button" id="username" data-toggle="dropdown"
                                             aria-haspopup="true" aria-expanded="false">
                                         </button>
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
@@ -342,7 +342,7 @@
                 <div class="caption text-center">
                     <h4>{{ProName}}</h4>
                     <span>Bắt đầu: {{NgayBD}}</span><br/>
-                    <span>Kết thúc: {{NgayKT}}</span><br/>
+                    <span class="end_time">Kết thúc: {{NgayKT}}</span><br/>
                     <span>Số lượng ra giá: {{SlRaGia}}</span><br/>
                     <span data-price="{{GiaHienTai}}">Giá hiện tại: {{GiaHienTai}}</span><br/>
                     <input class="hide-id" id="proid" value="{{ProID}}">
@@ -351,7 +351,7 @@
                             <button type="button" class="btn btn-info btn-xs pull-right glyphicon glyphicon-heart-empty"></button>
                         </a>
                         <a href="single-listing-1.html?id={{ProID}}" class="btn btn-primary">
-                            <spa>Details</span>
+                            <span>Details</span>
 
                         </a>
                         <a href="bid.html?id={{ProID}}" >

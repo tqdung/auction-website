@@ -10,7 +10,7 @@ $(function () {
     // // Retrieve the object from storage
     var UserInfo = JSON.parse(localStorage.getItem('UserInfo'));
     if(UserInfo){
-        $("#dropdownMenuButton").text(UserInfo.UsName);
+        $("#username").text(UserInfo.user_name);
         $(".not_login").hide();
         $(".login_ok").show();
     }
@@ -107,7 +107,7 @@ var loadPro = function () {
         $('#product-list-time').append(html3);
         $('#product-list-time div[style]').fadeIn(200, function () {
             $(this).removeAttr('style');
-        });
+        }, console.log($('#product-list-time').children()));
     });
     $.ajax({
         url: 'http://localhost:3000/products?page=' + CUR_PAGE,
