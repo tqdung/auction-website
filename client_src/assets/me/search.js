@@ -1,18 +1,18 @@
 $(function () {
     HandlebarsIntl.registerWith(Handlebars);
-
     // // Load thông tin Product từ index.js
-    var SearchInfo = localStorage.getItem('SearchInfo');
-    var UserInfo = JSON.parse(localStorage.getItem('SearchInfo'));
+    // var SearchInfo = localStorage.getItem('SearchInfo');
+    var SearchInfo = JSON.parse(localStorage.getItem('SearchInfo'));
     console.log(SearchInfo);
+
     if(SearchInfo){
-        console.log('ProInfo: ', UserInfo[0].ProID);
-        document.getElementById("product-id").innerHTML = UserInfo[0].ProID;
-        var link = UserInfo[0].HinhAnh;
-        document.getElementById("product-pic").src = UserInfo[0].HinhAnh;
-        // $('#product-pic').html('<img src="data:image/png;base64,' + UserInfo[0].HinhAnh + '" />');
-        document.getElementById("product-name").innerHTML = UserInfo[0].ProName;
-        document.getElementById("product-num").innerHTML = UserInfo[0].SlRaGia;
-        document.getElementById("product-price-now").innerHTML = UserInfo[0].GiaHienTai;
+        var source = $('#product-search').html();
+        var template = Handlebars.compile(source);
+        var html = template(SearchInfo.products);
+        $('#product-list-search').append(html);
+        $('#product-list-search div[style]').fadeIn(200, function () {
+            $(this).removeAttr('style');
+        });
     }
+
 });
