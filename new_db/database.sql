@@ -119,14 +119,14 @@ DROP TABLE IF EXISTS `users`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `users` (
-  `UsID` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `UsName` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `LoaiUser` tinyint(1) NOT NULL,
-  `Email` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
-  `Password` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `user_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `user_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `type` tinyint(1) NOT NULL,
+  `email` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
+  `password` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
   `active` int(11) DEFAULT '0',
-  PRIMARY KEY (`UsID`),
-  UNIQUE KEY `email_UNIQUE` (`Email`)
+  PRIMARY KEY (`user_id`),
+  UNIQUE KEY `email_UNIQUE` (`email`)
 ) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
