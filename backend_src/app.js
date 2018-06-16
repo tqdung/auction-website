@@ -23,6 +23,11 @@ app.get('/', (req, res) => {
 });
 
 
+app.post('/', (req, res)=>{
+	res.json(req.body);
+})
+
+
 app.use('/categories', categoryCtrl);
 app.use('/users', userCtrl);
 app.use('/products', productCtrl);

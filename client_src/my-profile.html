@@ -496,71 +496,75 @@
                             <form class="form">
                                 <div class="row">
                                     <div class="col-md-8">
-                                        <h2>Personal Information</h2>
-                                        <section>
-                                            <div class="row">
-                                                <div class="col-md-4">
-                                                    <div class="form-group">
-                                                        <label for="title" class="col-form-label">Title</label>
-                                                        <select name="title" id="title" data-placeholder="Title">
-                                                            <option value="">Title</option>
-                                                            <option value="1" selected>Mrs</option>
-                                                            <option value="2">Mr</option>
-                                                        </select>
+                                        <!-- Đóng gói thành form để lưu hình ảnh user lên -->
+                                        <form action="">
+                                            <h2>Personal Information</h2>
+                                            <section>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label for="title" class="col-form-label">Title</label>
+                                                            <select name="title" id="title" data-placeholder="Title">
+                                                                <option value="">Title</option>
+                                                                <option value="1" selected>Mrs</option>
+                                                                <option value="2">Mr</option>
+                                                            </select>
+                                                        </div>
+                                                        <!--end form-group-->
                                                     </div>
-                                                    <!--end form-group-->
-                                                </div>
-                                                <div class="col-md-8">
-                                                    <div class="form-group">
-                                                        <label for="name" class="col-form-label required">Your Name</label>
-                                                        <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                                    <div class="col-md-8">
+                                                        <div class="form-group">
+                                                            <label for="name" class="col-form-label required">Your Name</label>
+                                                            <input name="name" type="text" class="form-control" id="name" placeholder="Your Name" required>
+                                                        </div>
+                                                        <!--end form-group-->
                                                     </div>
-                                                    <!--end form-group-->
+                                                    <!--end col-md-8-->
                                                 </div>
-                                                <!--end col-md-8-->
-                                            </div>
-                                            <!--end row-->
-                                            <!--end form-group-->
-                                        </section>                                         
-                                        <section>
-                                            <div class="form-group">
-                                                <label for="email" class="col-form-label">Email</label>
-                                                <input name="email" type="email" class="form-control" id="email" placeholder="Your Email" />
-                                            </div>
-                                            <!--end form-group-->
-                                        </section>
+                                                <!--end row-->
+                                                <!--end form-group-->
+                                            </section>
+                                            <section>
+                                                <div class="form-group">
+                                                    <label for="email" class="col-form-label">Email</label>
+                                                    <input name="email" type="email" class="form-control" id="email" placeholder="Your Email" />
+                                                </div>
+                                                <!--end form-group-->
+                                            </section>
 
-                                        <section>
-                                            <div class="form-group">
-                                                <label for="password" class="col-form-label">Password</label>
-                                                <input name="password" type="password" class="form-control" id="password" />
-                                            </div>
-                                            <!--end form-group-->
-                                        </section>
-                                        <section>
-                                            <div class="form-group">
-                                                <label for="newpass" class="col-form-label">New Password</label>
-                                                <input name="newpass" type="password" class="form-control" id="newpass" />
-                                            </div>
-                                            <!--end form-group-->
-                                        </section>
-                                        <section>
-                                            <div class="form-group">
-                                                <label for="repeatpass" class="col-form-label">Repeat Password</label>
-                                                <input name="repeatpass" type="password" class="form-control" id="repeatpass" />
-                                            </div>
-                                            <!--end form-group-->
-                                        </section>
+                                            <section>
+                                                <div class="form-group">
+                                                    <label for="password" class="col-form-label">Password</label>
+                                                    <input name="password" type="password" class="form-control" id="password" />
+                                                </div>
+                                                <!--end form-group-->
+                                            </section>
+                                            <section>
+                                                <div class="form-group">
+                                                    <label for="newpass" class="col-form-label">New Password</label>
+                                                    <input name="newpass" type="password" class="form-control" id="newpass" />
+                                                </div>
+                                                <!--end form-group-->
+                                            </section>
+                                            <section>
+                                                <div class="form-group">
+                                                    <label for="repeatpass" class="col-form-label">Repeat Password</label>
+                                                    <input name="repeatpass" type="password" class="form-control" id="repeatpass" />
+                                                </div>
+                                                <!--end form-group-->
+                                            </section>
 
-                                        <section class="clearfix">
-                                            <button id="btnSavePasswordChanged" type="button" class="btn btn-primary float-right">Save Changes</button>
-                                        </section>
+                                            <section class="clearfix">
+                                                <button id="btnSavePasswordChanged" type="button" class="btn btn-primary float-right">Save Changes</button>
+                                            </section>
+                                        </form>
+
                                     </div>
                                     <!--end col-md-8-->
                                     <div class="col-md-4">
                                         <div class="profile-image">
                                             <div class="image background-image">
-                                                <img src="assets/img/author-09.jpg" alt="">
+                                                <!-- <img src="assets/img/author-09.jpg" alt=""> -->
                                             </div>
                                             <div class="single-file-input">
                                                 <input type="file" id="user_image" name="user_image">
