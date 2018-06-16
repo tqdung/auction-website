@@ -14,9 +14,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-DROP database IF EXISTS auction;
-Create database auction;
-use auction;
+
 --
 -- Table structure for table `detail`
 --
@@ -52,7 +50,7 @@ DROP TABLE IF EXISTS `loaisp`;
 CREATE TABLE `loaisp` (
   `CatID` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `CatName` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `HinhAnh`  text COLLATE utf8_unicode_ci NOT NULL,
+  `HinhAnh` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `MoTa` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   PRIMARY KEY (`CatID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
@@ -64,8 +62,7 @@ CREATE TABLE `loaisp` (
 
 LOCK TABLES `loaisp` WRITE;
 /*!40000 ALTER TABLE `loaisp` DISABLE KEYS */;
-INSERT INTO `loaisp` VALUES (1,'Thiết bị điện tử - viễn thông','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg','Bao gồm các sản phẩm thuộc lĩnh vực công nghệ, điện tử, viễn thông, . . .'),
-(2,'Thiết bị gia dụng','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg','Bao gồm các sản phẩm thuộc lĩnh vực đồ điện, gia dụng, . . .');
+INSERT INTO `loaisp` VALUES (1,'Thiết bị điện tử - viễn thông','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg','Bao gồm các sản phẩm thuộc lĩnh vực công nghệ, điện tử, viễn thông, . . .'),(2,'Thiết bị gia dụng','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg','Bao gồm các sản phẩm thuộc lĩnh vực đồ điện, gia dụng, . . .');
 /*!40000 ALTER TABLE `loaisp` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -100,14 +97,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',1,30000000,26000000,'2018-05-20 00:00:00','2018-05-31 00:00:00',1,1,1,'Mô tả iphone',2),
-(2,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',9,25000000,26000000,'2018-05-21 00:00:00','2018-08-31 00:00:00',1,1,1,'Mô tả iphone',2),
-(3,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',8,22000000,26000000,'2018-05-1 00:00:00','2018-08-20 00:00:00',1,1,1,'Mô tả iphone',2),
-(4,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',9,28000000,26000000,'2018-05-7 00:00:00','2018-07-25 00:00:00',1,1,1,'Mô tả iphone',2),
-(5,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',6,27500000,26000000,'2018-05-9 00:00:00','2018-11-20 00:00:00',1,1,1,'Mô tả iphone',2),
-(6,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',7,21000000,26000000,'2018-05-5 00:00:00','2018-10-31 00:00:00',1,1,1,'Mô tả iphone',2),
-(7,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',2,24000000,26000000,'2018-05-25 00:00:00','2018-08-31 00:00:00',1,1,1,'Mô tả iphone',2),
-(8,'Iphone 9 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',0,24500000,26000000,'2018-05-3 00:00:00','2018-07-20 00:00:00',1,1,1,'Mô tả iphone',2);
+INSERT INTO `products` VALUES (1,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',1,30000000,26000000,'2018-05-20 00:00:00','2018-05-31 00:00:00',1,1,1,'Mô tả iphone',2),(2,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',9,25000000,26000000,'2018-05-21 00:00:00','2018-08-31 00:00:00',1,1,1,'Mô tả iphone',2),(3,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',8,22000000,26000000,'2018-05-01 00:00:00','2018-08-20 00:00:00',1,1,1,'Mô tả iphone',2),(4,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',9,28000000,26000000,'2018-05-07 00:00:00','2018-07-25 00:00:00',1,1,1,'Mô tả iphone',2),(5,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',6,27500000,26000000,'2018-05-09 00:00:00','2018-11-20 00:00:00',1,1,1,'Mô tả iphone',2),(6,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',7,21000000,26000000,'2018-05-05 00:00:00','2018-10-31 00:00:00',1,1,1,'Mô tả iphone',2),(7,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',2,24000000,26000000,'2018-05-25 00:00:00','2018-08-31 00:00:00',1,1,1,'Mô tả iphone',2),(8,'Iphone 9 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',0,24500000,26000000,'2018-05-03 00:00:00','2018-07-20 00:00:00',1,1,1,'Mô tả iphone',2);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -121,13 +111,13 @@ DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `user_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `user_name` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
-  `type` tinyint(1) NOT NULL,
+  `type` tinyint(1) NOT NULL DEFAULT '0',
   `email` varchar(45) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `password` varchar(45) COLLATE utf8mb4_unicode_ci NOT NULL,
   `active` int(11) DEFAULT '0',
   PRIMARY KEY (`user_id`),
   UNIQUE KEY `email_UNIQUE` (`email`)
-) ENGINE=InnoDB AUTO_INCREMENT=52 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=53 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -136,7 +126,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Người Mua A',0,NULL,'',NULL),(2,'Người Bán B',1,NULL,'',NULL),(3,'Trần Quốc Dũng',1,'dungtran6665@gmail.com','e10adc3949ba59abbe56e057f20f883e',1),(51,'Trần Quốc Dũng',1,'tqdungit97@gmail.com','202cb962ac59075b964b07152d234b70',0);
+INSERT INTO `users` VALUES (1,'Người Mua A',0,NULL,'',NULL),(2,'Người Bán B',1,NULL,'',NULL),(3,'Trần Quốc Dũng',1,'dungtran6665@gmail.com','e10adc3949ba59abbe56e057f20f883e',1),(52,'Lép Đẹp Trai',0,'tqdungit97@gmail.com','e10adc3949ba59abbe56e057f20f883e',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -149,4 +139,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2018-06-06 22:33:08
+-- Dump completed on 2018-06-16 22:31:05
