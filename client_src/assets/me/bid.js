@@ -14,6 +14,11 @@ $(function () {
         document.getElementById("product-name").innerHTML = ProInfo[0].ProName;
         document.getElementById("product-num").innerHTML = ProInfo[0].SlRaGia;
         document.getElementById("product-price-now").innerHTML = ProInfo[0].GiaHienTai;
+        document.getElementById("product-sell-now").innerHTML = ProInfo[0].GiaMuaNgay;
+        document.getElementById("product-startday").innerHTML = ProInfo[0].NgayBD;
+        document.getElementById("product-endday").innerHTML = ProInfo[0].NgayKT;
+        document.getElementById("product-review").innerHTML = ProInfo[0].MoTa;
+        
 
         document.getElementById("sell-name").innerHTML = ProInfo[0].UsName;
         document.getElementById("us-email").innerHTML = ProInfo[0].Email;
