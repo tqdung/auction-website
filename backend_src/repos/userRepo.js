@@ -11,7 +11,7 @@ exports.add = function (poco) {
 }
 exports.login = function (poco) {
 	var pass = md5(poco.password);
-	var sql = mysql.format('select * from users where email=? and password=? and type=1', [poco.email, pass]);
+	var sql = mysql.format('select * from users where email=? and password=? and active=1', [poco.email, pass]);
 	return db.load(sql);
 }
 exports.edit = function (info) {
@@ -23,6 +23,6 @@ exports.checkPassword = function(info){
 	return db.load(sql);
 }
 exports.confirm = function (email) {
-	var sql = mysql.format('update users set type=1 where email=?', [email]);
+	var sql = mysql.format('update users set active=1 where email=?', [email]);
 	return db.load(sql);
 }
