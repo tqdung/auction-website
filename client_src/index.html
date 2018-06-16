@@ -133,13 +133,14 @@
                                     <div class="form-row">
                                         <div class="col-xl-6 col-lg-12 col-md-12 col-sm-12 d-xs-grid d-flex align-items-center justify-content-between">
                                             <label>
-                                                <input type="checkbox" name="new"> Mới nhất
+                                                <input type="checkbox" id="new"> Mới nhất
+                                            </label>
+
+                                            <label>
+                                                <input type="checkbox" id="used"> Nhiều lượt đấu giá nhất
                                             </label>
                                             <label>
-                                                <input type="checkbox" name="used"> Nhiều lượt đấu giá nhất
-                                            </label>
-                                            <label>
-                                                <input type="checkbox" name="with_photo"> Sắp kết thúc
+                                                <input type="checkbox" id="sate"> Sắp kết thúc
                                             </label>
                                         </div>
                                         <!--end col-xl-6-->
@@ -262,6 +263,7 @@
             <!--end block-->
         </section>
         <!--end content-->
+        
 
         <!--*********************************************************************************************************-->
         <!--************ FOOTER *************************************************************************************-->
@@ -332,8 +334,6 @@
     </div>
     <!--end page-->
 
-    <div class="sdsawqdwqdqw"></div>
-
     <script id="product-template" type="text/x-handlebars-template">
         {{#each this}}
         <div class="col-sm-3 col-md-3" style="display: none">
@@ -344,6 +344,7 @@
                     <span>Bắt đầu: {{NgayBD}}</span><br/>
                     <span class="end_time">Kết thúc: {{NgayKT}}</span><br/>
                     <span>Số lượng ra giá: {{SlRaGia}}</span><br/>
+                    <p class="red" id="demo"></p>
                     <span data-price="{{GiaHienTai}}">Giá hiện tại: {{GiaHienTai}}</span><br/>
                     <input class="hide-id" id="proid" value="{{ProID}}">
                     <p>
@@ -374,6 +375,38 @@
             </select>
         </div>
     </script>
+    
+    <script>
+            var id = $(this).attr("data-id")
+            // Set the date we're counting down to
+            var countDownDate = new Date("Sep 5, 2018 15:37:25").getTime();
+            
+            // Update the count down every 1 second
+            var x = setInterval(function() {
+            
+                // Get todays date and time
+                var now = new Date().getTime();
+                
+                // Find the distance between now an the count down date
+                var distance = countDownDate - now;
+                
+                // Time calculations for days, hours, minutes and seconds
+                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+                
+                // Output the result in an element with id="demo"
+                document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+                + minutes + "m " + seconds + "s ";
+                
+                // If the count down is over, write some text 
+                if (distance < 0) {
+                    clearInterval(x);
+                    document.getElementById("demo").innerHTML = "EXPIRED";
+                }
+            }, 1000);
+            </script>
     <script src="assets/js/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="assets/js/popper.min.js"></script>
     <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>

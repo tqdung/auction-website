@@ -46,3 +46,20 @@
 .breadcrumb-custom{
     background-color: white !important;
 }
+
+
+/*CSS cho sell.html*/
+.review{
+    height: 200px;
+}
+.align-col{
+    float: right;
+}
+input::-webkit-input-placeholder {
+    font-size: 20px;
+}
+
+.red{
+    color: red;
+    font-size: 20px;
+}
