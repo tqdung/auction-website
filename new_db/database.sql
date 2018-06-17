@@ -145,4 +145,33 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
+--
+-- Table structure for table `dsyeuthich`
+--
+
+DROP TABLE IF EXISTS `dsyeuthich`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `dsyeuthich` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `CatName` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `HinhAnh` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  `MoTa` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
+  `NguoiThichID` int(11) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `dsyeuthich`
+--
+
+LOCK TABLES `dsyeuthich` WRITE;
+/*!40000 ALTER TABLE `dsyeuthich` DISABLE KEYS */;
+INSERT INTO `dsyeuthich` VALUES (1,'Iphone 10','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg', 'Mô tả Iphone 10',4),
+(2,'Iphone 4','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg','Mô tả Iphone 4',2);
+/*!40000 ALTER TABLE `dsyeuthich` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 -- Dump completed on 2018-06-16 22:31:05

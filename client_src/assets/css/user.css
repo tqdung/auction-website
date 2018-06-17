@@ -51,6 +51,7 @@
 /*CSS cho sell.html*/
 .review{
     height: 200px;
+    width: 100%;
 }
 .align-col{
     float: right;
@@ -62,4 +63,27 @@ input::-webkit-input-placeholder {
 .red{
     color: red;
     font-size: 20px;
+}
+
+.around{
+    height: 30px;
+    background-color: #f3eeb8 !important;
+    color: #ff00e0;
+}
+
+
+.column {
+    float: left;
+    width: 33.33%;
+    padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+    content: "";
+    clear: both;
+    display: table;
+}
+* {
+    box-sizing: border-box;
 }

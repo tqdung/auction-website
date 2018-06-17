@@ -15,7 +15,15 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<title>Craigs - Easy Buy & Sell Listing HTML Template</title>
+    <title>jQuery Countdown</title>
+    <link rel="stylesheet" href="css/jquery.countdown.css">
+    <style type="text/css">
+    #defaultCountdown { width: 240px; height: 45px; }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/jquery.plugin.min.js"></script>
+    <script src="js/jquery.countdown.js"></script>
+    
 
 </head>
 
@@ -218,6 +226,7 @@
                                     <div class="form-group">
                                         <label class="col-form-label text-danger">Top sản phẩm có nhiều lượt ra giá</label>
                                     </div>
+                                    <div id="defaultCountdown"></div>
                                     <div class="panel-body">
                                         <div class="row" id="product-list-num">
 
@@ -263,7 +272,6 @@
             <!--end block-->
         </section>
         <!--end content-->
-        
 
         <!--*********************************************************************************************************-->
         <!--************ FOOTER *************************************************************************************-->
@@ -311,6 +319,7 @@
                                     <a href="https://www.facebook.com/cutruongduy97"></a>
                                 </figure>
                                 <br>
+                                
                                 <strong>Email:</strong>
                                 <a href="#">cutruongduy97@gmail.com</a>
                                 <br>
@@ -333,23 +342,25 @@
         <!--end footer-->
     </div>
     <!--end page-->
-
+    
     <script id="product-template" type="text/x-handlebars-template">
         {{#each this}}
+        
         <div class="col-sm-3 col-md-3" style="display: none">
             <div class="thumbnail">
                 <img class="img-product"  src="{{HinhAnh}}" alt="{{ProName}}" title="{{ProName}}">
+                
                 <div class="caption text-center">
                     <h4>{{ProName}}</h4>
                     <span>Bắt đầu: {{NgayBD}}</span><br/>
                     <span class="end_time">Kết thúc: {{NgayKT}}</span><br/>
                     <span>Số lượng ra giá: {{SlRaGia}}</span><br/>
-                    <p class="red" id="demo"></p>
+                    <div class="defaultCountdown{{ProID}} around"></div>
                     <span data-price="{{GiaHienTai}}">Giá hiện tại: {{GiaHienTai}}</span><br/>
                     <input class="hide-id" id="proid" value="{{ProID}}">
                     <p>
-                        <a href="javascript:;" class="btn btn-info">
-                            <button type="button" class="btn btn-info btn-xs pull-right glyphicon glyphicon-heart-empty"></button>
+                        <a href="" class="btn btn-info">
+                            <button id="btnLove"  love-id="{{ProID}}" type="button" class="btn btn-info btn-xs pull-right glyphicon glyphicon-heart-empty"></button>
                         </a>
                         <a href="single-listing-1.html?id={{ProID}}" class="btn btn-primary">
                             <span>Details</span>
@@ -362,6 +373,7 @@
                 </div>
             </div>
         </div>
+            
         {{/each}}
     </script>
     <script id="product-categ" type="text/x-handlebars-template">
@@ -376,38 +388,8 @@
         </div>
     </script>
     
-    <script>
-            var id = $(this).attr("data-id")
-            // Set the date we're counting down to
-            var countDownDate = new Date("Sep 5, 2018 15:37:25").getTime();
-            
-            // Update the count down every 1 second
-            var x = setInterval(function() {
-            
-                // Get todays date and time
-                var now = new Date().getTime();
-                
-                // Find the distance between now an the count down date
-                var distance = countDownDate - now;
-                
-                // Time calculations for days, hours, minutes and seconds
-                var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-                var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-                var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-                var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-                
-                // Output the result in an element with id="demo"
-                document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-                + minutes + "m " + seconds + "s ";
-                
-                // If the count down is over, write some text 
-                if (distance < 0) {
-                    clearInterval(x);
-                    document.getElementById("demo").innerHTML = "EXPIRED";
-                }
-            }, 1000);
-            </script>
-    <script src="assets/js/jquery-3.3.1.min.js"></script>
+    
+    <!-- <script src="assets/js/jquery-3.3.1.min.js"></script> -->
     <script type="text/javascript" src="assets/js/popper.min.js"></script>
     <script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBEDfNcQRmKQEyulDN8nGWjLYPm8s4YB58&libraries=places"></script>

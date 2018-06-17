@@ -81,6 +81,19 @@ var loadPro = function () {
         $('#product-list-num div[style]').fadeIn(200, function () {
             $(this).removeAttr('style');
         });
+        arrayLength = data.products.length;
+        for (var i = 0; i < arrayLength; i++) {
+            var austDay = new Date();
+            str = data.products[i].NgayKT;
+            var year = str.slice(6,10);
+            var month = str.slice(3, 5);
+            var date = str.slice(0, 2);
+            idPro = data.products[i].ProID;
+            austDay = new Date(year, month - 1, date);
+            $('.defaultCountdown'+ idPro).countdown({until: austDay});
+            // $('#year').text(austDay.getFullYear());
+            
+        }
     $.ajax({
         url: 'http://localhost:3000/products?page=' + CUR_PAGE,
         dataType: 'json',
@@ -94,6 +107,25 @@ var loadPro = function () {
         $('#product-list-price div[style]').fadeIn(200, function () {
             $(this).removeAttr('style');
         });
+        for (var i = 0; i < arrayLength; i++) {
+            var austDay2 = new Date();
+            str2 = data.products[i].NgayKT;
+            var year = str2.slice(6,10);
+            var month = str2.slice(3, 5);
+            var date = str2.slice(0, 2);
+            idPro = data.products[i].ProID;
+            austDay2 = new Date(year, month - 1, date);
+            $('.defaultCountdown'+ idPro).countdown({until: austDay2});
+            // $('#year').text(austDay.getFullYear());
+            // alert(year);
+            // alert(month);
+            // alert(date);
+            // if(year === '0' && month === '0' && date === '0')
+            // {
+            //     console.log('hết thời gian!');
+            //     console.log('data.products[i].ProName');
+            // }
+        }
     $.ajax({
         url: 'http://localhost:3000/products?page=' + CUR_PAGE,
         dataType: 'json',
@@ -107,6 +139,17 @@ var loadPro = function () {
         $('#product-list-time div[style]').fadeIn(200, function () {
             $(this).removeAttr('style');
         });
+        for (var i = 0; i < arrayLength; i++) {
+            var austDay3 = new Date();
+            str3 = data.products[i].NgayKT;
+            var year = str3.slice(6,10);
+            var month = str3.slice(3, 5);
+            var date = str3.slice(0, 2);
+            idPro = data.products[i].ProID;
+            austDay3 = new Date(year, month - 1, date);
+            $('.defaultCountdown'+ idPro).countdown({until: austDay3});
+            // $('#year').text(austDay.getFullYear());
+        }
     });
     $.ajax({
         url: 'http://localhost:3000/products?page=' + CUR_PAGE,
@@ -197,4 +240,28 @@ $('#btnSearch').on('click', function(){
         }
 
         $('.loadersearch').hide();
+});
+
+$('#btnLove').on('click', function(){
+    alert('haha');
+    var id = $(this).attr("love-id")
+    var body = {
+        love_key: id,
+    };
+    $.ajax({
+        url: 'http://localhost:3000/user/' + id,
+        dataType: 'json',
+        timeout: 10000,
+        type: 'POST',
+        data: JSON.stringify(body)
+    }).done(function (data, errorThrown) {
+        if (errorThrown) {
+            swal("Thêm vào danh sách yêu thích thành công!", "^^!", "Thành công!")
+            var PRO_INFO = data;
+            //Put the object into storage
+            localStorage.setItem('ProInfo', JSON.stringify(PRO_INFO));
+        } else {
+            swal("Lỗi!", "Thêm vào danh sách yêu thích thất bại!", "Error")
+            }
+    });
 });
