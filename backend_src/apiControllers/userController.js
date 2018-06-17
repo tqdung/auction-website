@@ -139,6 +139,12 @@ router.post('/captcha', (req, res) => {
         });
 });
 
-// Upload avatar
+// Upload avatar'
+
+var upload = multer({ dest: 'public/imgs/user_avt/' });
+
+router.post('/avatar', upload.single('avatar'), (req, res)=>{
+    res.json(req.body);
+})
 
 module.exports = router;

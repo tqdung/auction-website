@@ -26,8 +26,9 @@ $(function () {
         
     }
     var UserInfo = JSON.parse(localStorage.getItem('UserInfo'));
+    console.log(UserInfo);
     if(UserInfo){
-        $("#dropdownMenuButton").text(UserInfo.UsName);
+        $("#dropdownMenuButton").text(UserInfo.user_name);
         $(".not_login").hide();
         $(".login_ok").show();
     }
