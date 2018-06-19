@@ -87,3 +87,18 @@ input::-webkit-input-placeholder {
 * {
     box-sizing: border-box;
 }
+
+.info{
+    padding-left: 270px;
+    padding-top: 50px;
+}
+
+.info2{
+
+    padding-left: 270px;
+}
+
+.height{
+
+    height: 250px;
+}

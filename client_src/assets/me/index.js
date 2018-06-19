@@ -8,6 +8,7 @@ $(function () {
     // Qua bên này sẽ load lại thông tin
     // // Retrieve the object from storage
     var UserInfo = JSON.parse(localStorage.getItem('UserInfo'));
+    console.log(UserInfo);
     if(UserInfo){
         $("#username").text(UserInfo.user_name);
         $(".not_login").hide();
