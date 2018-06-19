@@ -1,6 +1,7 @@
 var express = require('express');
 var productRepo = require('../repos/productRepo'),
-    constants = require('../fn/const');
+    constants = require('../fn/const'),
+    multer = require('multer');
 
 var router = express.Router();
 
@@ -126,4 +127,21 @@ router.get('/:id', (req, res) => {
     }
 });
 
+
+var staticDir = path.resolve(__dirname, '../public/imgs/products')
+var storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+        cb(null, staticDir)
+    },
+    filename: function (req, file, cb) {
+        let file_type = file.originalname.substr(file.originalname.indexOf('.'));
+        cb(null, file.originalname)
+    }
+})
+
+var upload = multer({ storage: storage })
+
+router.post('/', upload.array('products', 3), (req, res) => {
+    res.json([req.originalname]);
+})
 module.exports = router;

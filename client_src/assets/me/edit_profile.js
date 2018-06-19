@@ -1,9 +1,7 @@
 $(document).ready(function(){
     var UserInfo = JSON.parse(localStorage.getItem('UserInfo'));
     if(UserInfo){
-        console.log(UserInfo.user_name);
-        console.log(UserInfo.email);
-        console.log(UserInfo.password);
+        console.log(UserInfo);
         $("#name").val(UserInfo.user_name)
         $("#txtbox").prop("disabled",true);
         $("#email").val(UserInfo.email);
@@ -60,14 +58,19 @@ $("#btnSavePasswordChanged").on("click", function(){
         }).done(function(mess){
             swal(mess.message, "Click Ok để tiếp tục", "success")
             .then(()=>{
-                window.location.href = "./sign-in.html";
+                window.location.href = "./sign-in";
             });
         }).fail(function(xhr, textStatus, error){
             swal(error, "Thông tin vừa nhập không khớp", "error");
         });
     }
+
 })
 
+$("#log_out").on("click", function(){
+    localStorage.removeItem('UserInfo');
+    window.location.href = "./index";
+})
 
 // Copy từ file custom.js dòng 525
 function previewImage(input) {
