@@ -1,8 +1,8 @@
 var express = require('express'),
 	bodyParser = require('body-parser')
 	morgan = require('morgan')
-	cors = require('cors');
-
+	cors = require('cors'),
+	path = require('path');
 var categoryCtrl = require('./apiControllers/categoryController'),
 	productCtrl = require('./apiControllers/productController'),
 	userCtrl = require('./apiControllers/userController'),
@@ -27,6 +27,12 @@ app.post('/', (req, res)=>{
 	res.json(req.body);
 })
 
+var staticDir = express.static(
+	path.resolve(__dirname, 'public')
+);
+
+app.use(staticDir);
+app.set('staticDir', staticDir);
 
 app.use('/categories', categoryCtrl);
 app.use('/users', userCtrl);
