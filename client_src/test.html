@@ -3,13 +3,30 @@
 
 <head>
 	<title>CLient Uploader</title>
+	<script src="assets/jquery-3.1.1.min.js"></script>
+	<script src="assets/jquery.form.min.js"></script>
 </head>
 
 <body>
-	<form id="frm" enctype="multipart/form-data" method="post" action="http://localhost:3000/users/avatar">
-		<input type="file" name="avatar" />
-		<button type="submit" id="btnUpload" name="btnUpload">Upload</button>
+	<form id="frm" enctype="multipart/form-data", name="form1">
+		<img style="width: 150px; height: 150px;" src="https://s2.googleusercontent.com/s2/favicons?domain_url=https://www.youtube.com/&alt=s&sz=32" alt="" id='image'>
+		<input type="file" id="product"/>
+		<button type="button" id="btnUpload">Upload</button>
 	</form>
+
+	<script>
+		$('#product').on('change',function(e){
+			var file = e.target.files;
+			var reader = new FileReader();
+			reader.readAsDataURL(file[0]);
+			reader.onload = function(){
+				console.log(reader.result);
+				$('#image').attr('src', reader.result);
+			}
+			
+
+		})
+	</script>
 	<!-- <script src="assets/jquery-3.1.1.min.js"></script>
 	<script src="assets/jquery.form.min.js"></script>
 
