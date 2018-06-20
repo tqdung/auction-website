@@ -93,7 +93,7 @@
                             <li class="breadcrumb-item"><a href="./index.html">Trang chủ</a></li>
                             <li class="breadcrumb-item active">Đấu giá</li>
                         </ol>
-                        <div class="float-left float-xs-none">
+                        <div class="float-left float-xs-none text-danger">
                             <h1>ĐẤU GIÁ SẢN PHẨM</h1>
                         </div>
                     </div>
@@ -121,9 +121,8 @@
                             <!--Detail-->
                             <div class="col-md-6 detail">   
                                     <dl>
-                                        <dt class="hide-id">ID</dt>
-                                        <dd  class="hide-id" id="product-id"></dd>
-                                        <h3><strong>
+                                        <input  class="hide-id" id="product-id">
+                                        <h3  class="text-danger"><strong>
                                             <dt>Tên</dt>
                                             <dd id="product-name"></dd>
                                         </strong></h3>
@@ -139,13 +138,12 @@
                                         <dd  id="product-endday"></dd>
                                     </dl>
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-6 text-primary">
                                     <h2>Thông tin sản phẩm</h2>
                                     <img id="product-pic" src="" class="img-thumbnail" alt="Cinque Terre" width="304" height="236">
                                 </div>
                             <!--end Detail-->
                             <!--Difference-->
-                            
                             <!--end Difference-->
                             <hr>
                             <!-- Trigger the modal with a button -->
@@ -167,21 +165,21 @@
                                             <div class="form-group">
                                                 <label class="col-sm-8 control-label">Giá hiện tại</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" id="priceInput" type="text" placeholder="Giá hiện tại">
+                                                    <input class="form-control" id="pricedef" type="text" placeholder="Giá hiện tại" disabled>
                                                 </div>
                                                 <label class="col-sm-8 control-label">Giá đề nghị</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" id="priceInput" type="text" placeholder="Giá đề nghị">
+                                                    <input class="form-control" id="pricesug" type="text" placeholder="Giá đề nghị" disabled>
                                                 </div>
                                                 <label class="col-sm-8 control-label">Giá của bạn</label>
                                                 <div class="col-sm-10">
-                                                    <input class="form-control" id="priceInput" type="text" placeholder="Nhập giá">
+                                                    <input class="form-control"  id="money"  onchange="checkmin()" type="text" placeholder="Nhập giá">
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                         <button type="button" class="btn btn-default" data-dismiss="modal">Thoát</button>
-                                        <button type="button" class="btn btn-default" data-dismiss="modal">Ra giá</button>
+                                        <button type="button" class="btn btn-default" data-dismiss="modal"  id="btnDauGia" data-id="product-id">Ra giá</button>
                                         </div>
                                     </div>
 
@@ -239,7 +237,7 @@
                             <aside class="sidebar">
                                 <!--Author-->
                                 <section>
-                                    <h2>Người bán</h2>
+                                    <h2 class="text-primary">Người bán</h2>
                                     <div class="box">
                                         <div class="author">
                                             <div class="author-image">
@@ -374,6 +372,7 @@
     <script src="assets/handlebars-intl-1.1.2/handlebars-intl.min.js"></script>
     <script src="assets/me/bid.js"></script>
 
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>
 </html>

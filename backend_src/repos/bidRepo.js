@@ -6,3 +6,8 @@ exports.load = function(id) {
                 where p.ProID = ${id}`;
     return db.load(sql);
 }
+exports.offer = function(id_pro, id_use){
+    var sql = `select * from products p
+                where p.ProID = ${id_pro}`;
+return db.load(sql);
+}

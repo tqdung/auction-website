@@ -7,7 +7,8 @@ var categoryCtrl = require('./apiControllers/categoryController'),
 	productCtrl = require('./apiControllers/productController'),
 	userCtrl = require('./apiControllers/userController'),
 	searchCtrl = require('./apiControllers/searchController'),
-	bidCtrl = require('./apiControllers/bidController');
+	bidCtrl = require('./apiControllers/bidController'),
+	offerCtrl = require('./apiControllers/offerController');
 var app = express();
 
 app.use(morgan('dev'));
@@ -39,6 +40,7 @@ app.use('/users', userCtrl);
 app.use('/products', productCtrl);
 app.use('/search', searchCtrl);
 app.use('/bid', bidCtrl);
+app.use('/offer', offerCtrl);
 
 app.listen(3000, () => {
 	console.log('API running on port 3000');

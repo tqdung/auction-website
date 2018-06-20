@@ -242,8 +242,7 @@ $('#btnSearch').on('click', function(){
 
         $('.loadersearch').hide();
 });
-
-$('#btnLove').on('click', function(){
+$(document).on('click', '#btnLove', function(){
     alert('haha');
     var id = $(this).attr("love-id")
     var body = {
