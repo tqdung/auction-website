@@ -7,12 +7,12 @@ var router = express.Router();
 
 //Tải sản phẩm theo loại.
 router.get('/', (req, res) => {
-    if (req.query.type === 'num'){
+    if (req.query.type === 'num') {
         var page = 1;
         if (req.query.page) {
             page = +req.query.page;
         }
-        productRepo.loadProOrNum( page).then(rows => {
+        productRepo.loadProOrNum(page).then(rows => {
             var hasMore = rows.length > constants.PRODUCTS_PER_PAGE;
             if (hasMore) {
                 rows.pop();
@@ -28,12 +28,12 @@ router.get('/', (req, res) => {
             res.end('View error log on console.');
         });
     }
-    if (req.query.type === 'price'){
+    if (req.query.type === 'price') {
         var page2 = 1;
         if (req.query.page) {
             page2 = +req.query.page;
         }
-        productRepo.loadProOrPrice( page2).then(rows => {
+        productRepo.loadProOrPrice(page2).then(rows => {
             var hasMore = rows.length > constants.PRODUCTS_PER_PAGE;
             if (hasMore) {
                 rows.pop();
@@ -49,13 +49,13 @@ router.get('/', (req, res) => {
             res.end('View error log on console.');
         });
     }
-    if (req.query.type === 'time'){
+    if (req.query.type === 'time') {
         var page3 = 0;
         if (req.query.page) {
             page3 = +req.query.page - 1;
         }
 
-        productRepo.loadProOrTime( page3).then(rows => {
+        productRepo.loadProOrTime(page3).then(rows => {
             var hasMore = rows.length > constants.PRODUCTS_PER_PAGE;
             if (hasMore) {
                 rows.pop();
@@ -71,7 +71,7 @@ router.get('/', (req, res) => {
             res.end('View error log on console.');
         });
     }
-    if (req.query.type === 'categ'){
+    if (req.query.type === 'categ') {
         productRepo.loadAllCateg().then(rows => {
             var data = {
                 categs: rows,
@@ -131,17 +131,30 @@ router.get('/:id', (req, res) => {
 var staticDir = path.resolve(__dirname, '../public/imgs/products')
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, staticDir)
+        let category = req.body.category;
+        cb(null, staticDir )
     },
     filename: function (req, file, cb) {
         let file_type = file.originalname.substr(file.originalname.indexOf('.'));
-        cb(null, file.originalname)
+        cb(null, file.originalname);
     }
 })
 
 var upload = multer({ storage: storage })
 
-router.post('/', upload.array('products', 3), (req, res) => {
-    res.json([req.originalname]);
+router.post('/', (req, res) => {
+    console.log(req.body);
+    var respone = {
+        filename: req.file.originalname,
+        text: req.body.text_name
+    }
+    res.json(respone);
 })
+
+
+router.post('/test', (req, res)=>{
+    console.log(req);
+    res.json(req.files);
+});
+
 module.exports = router;

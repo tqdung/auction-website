@@ -10,3 +10,25 @@ $(document).ready(function(){
         $(".not_login").show();
     }
 });
+
+// $('#target').submit(function(){
+//     $(this).ajaxSubmit({
+//         beforeSubmit: function(formData, jqForm, options) {
+//             var body = {
+//                 text: "ahihihi"
+//             }
+//             $.ajax({
+//                 url: 'http://localhost:3000/products/test',
+//                 dataType: 'json',
+//                 timeout: 10000,
+//                 type: 'POST',
+//                 contentType: 'application/json',
+//                 data: JSON.stringify(body)
+//             })
+//         },
+//         success: function showResponse(responseText, statusText, xhr, $form) {
+//             alert(responseText);
+//         }
+//     });
+//     return false;
+// });

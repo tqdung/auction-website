@@ -149,9 +149,8 @@ var storage = multer.diskStorage({
         cb(null, staticDir)
     },
     filename: function (req, file, cb) {
-        let folder = req.body.user_id
         let file_type = file.originalname.substr(file.originalname.indexOf('.'));
-        cb(null, folder + '/' + 'avatar' + file_type)
+        cb(null, 'avatar' + file_type)
     }
 })
 
