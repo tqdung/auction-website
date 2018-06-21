@@ -70,6 +70,12 @@ input::-webkit-input-placeholder {
     background-color: #f3eeb8 !important;
     color: #ff00e0;
 }
+.around2{
+    height: 30px;
+    background-color: #f3eeb8 !important;
+    color: #ff00e0;
+    width: 26%;
+}
 
 
 .column {
@@ -101,4 +107,7 @@ input::-webkit-input-placeholder {
 .height{
 
     height: 250px;
+}
+.info3{
+    padding: 5px !important;
 }

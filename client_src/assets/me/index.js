@@ -202,6 +202,29 @@ $(document).on('click', '#btnBid', function() {
     });
 });
 
+$(document).on('click', '#btnDetail', function() {
+    var id = $(this).attr("data-id")
+    alert(id);
+    var body = {
+        proid_key: id,
+    };
+    $.ajax({
+        url: 'http://localhost:3000/bid/' + id,
+        dataType: 'json',
+        timeout: 10000,
+        type: 'POST',
+        data: JSON.stringify(body)
+    }).done(function (data, errorThrown) {
+        if (errorThrown) {
+            var PRO_INFO = data;
+            //Put the object into storage
+            localStorage.setItem('ProInfo', JSON.stringify(PRO_INFO));
+        } else {
+                alert("Failed " + errorThrown);
+            }
+    });
+});
+
 
 function getval(sel)
 {

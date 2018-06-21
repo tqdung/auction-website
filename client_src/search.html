@@ -13,6 +13,14 @@
     <link rel="stylesheet" href="assets/css/user.css">
 
 	<title>Craigs - Easy Buy & Sell Listing HTML Template</title>
+    <link rel="stylesheet" href="css/jquery.countdown.css">
+    <style type="text/css">
+    #defaultCountdown { width: 240px; height: 45px; }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/jquery.plugin.min.js"></script>
+    <script src="js/jquery.countdown.js"></script>
+    
 
 </head>
 <body>
@@ -418,10 +426,8 @@
                             <div class="info2">
                                 <p>
                                     <i class="fa fa-user"></i> Người giữ giá: {{NguoiGiuGiaID}}
-                                </p>
-                                <p>
-                                    <i class="fa fa-user"></i> Người bán: {{NguoiBanID}}
-                                </p>
+                                </p>Thời gian còn
+                                <div class="defaultCountdown{{ProID}} around2"></div>
                             </div>
                             <div class="description">
                                 <p>{{MoTa}}</p>
@@ -437,7 +443,7 @@
             </div>
         {{/each}}
     </script>
-	<script src="assets/js/jquery-3.3.1.min.js"></script>
+	<!-- <script src="assets/js/jquery-3.3.1.min.js"></script> -->
     <script type="text/javascript" src="assets/js/popper.min.js"></script>
 	<script type="text/javascript" src="assets/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="http://maps.google.com/maps/api/js?key=AIzaSyBEDfNcQRmKQEyulDN8nGWjLYPm8s4YB58&libraries=places"></script>
@@ -449,5 +455,7 @@
     <script src="assets/handlebars-intl-1.1.2/handlebars-intl.min.js"></script>
 	<script src="assets/js/custom.js"></script>
     <script src="assets/me/search.js"></script>
+
+    
 </body>
 </html>
