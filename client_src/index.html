@@ -16,13 +16,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <title>Craigs</title>
-    <link rel="stylesheet" href="css/jquery.countdown.css">
     <style type="text/css">
     #defaultCountdown { width: 240px; height: 45px; }
     </style>
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <script src="js/jquery.plugin.min.js"></script>
-    <script src="js/jquery.countdown.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/jquery.countdown.css"> 
+    <script type="text/javascript" src="js/jquery.plugin.js"></script> 
+    <script type="text/javascript" src="js/jquery.countdown.js"></script>
     
 
 </head>
@@ -348,26 +348,21 @@
         
         <div class="col-sm-3 col-md-3" style="display: none">
             <div class="thumbnail">
-                <img class="img-product"  src="{{HinhAnh}}" alt="{{ProName}}" title="{{ProName}}">
-                
+                    <img class="img-product"  src="{{HinhAnh}}" alt="{{ProName}}" title="{{ProName}}">
                 <div class="caption text-center">
-                    <h4>{{ProName}}</h4>
-                    <span>Bắt đầu: {{NgayBD}}</span><br/>
-                    <span class="end_time">Kết thúc: {{NgayKT}}</span><br/>
-                    <span>Số lượng ra giá: {{SlRaGia}}</span><br/>
-                    <div class="defaultCountdown{{ProID}} around"></div>
-                    <span data-price="{{GiaHienTai}}">Giá hiện tại: {{GiaHienTai}}</span><br/>
-                    <input class="hide-id" id="proid" value="{{ProID}}">
+                        <h4>{{ProName}}</h4>
+                        <span>Bắt đầu: {{NgayBD}}</span><br/>
+                        <span class="end_time">Kết thúc: {{NgayKT}}</span><br/>
+                        <span>Số lượng ra giá: {{SlRaGia}}</span><br/>
+                        <div class="defaultCountdown{{ProID}} around"></div>
+                        <span data-price="{{GiaHienTai}}">Giá hiện tại: {{GiaHienTai}}</span><br/>
+                        <input class="hide-id" id="proid" value="{{ProID}}">
                     <p>
-                        <a href="" class="btn btn-info">
+                        <a href="" class="btn btn-info info3">
                             <button id="btnLove"  love-id="{{ProID}}" type="button" class="btn btn-info btn-xs pull-right glyphicon glyphicon-heart-empty"></button>
                         </a>
-                        <a href="single-listing-1.html?id={{ProID}}" class="btn btn-primary">
-                            <span>Details</span>
-
-                        </a>
                         <a href="bid.html?id={{ProID}}" >
-                                <button id="btnBid" data-id="{{ProID}}" type="button" class="btn btn-danger">BID</button>
+                                <button id="btnBid" data-id="{{ProID}}" type="button" class="btn btn-danger">Thông tin - Đấu giá</button>
                         </a>
                     </p>
                 </div>

@@ -80,8 +80,8 @@ CREATE TABLE `products` (
   `ProName` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
   `HinhAnh` text COLLATE utf8_unicode_ci NOT NULL,
   `SlRaGia` int(5) DEFAULT NULL,
-  `GiaHienTai` int(21) NOT NULL,
-  `GiaMuaNgay` int(21) NOT NULL,
+  `GiaHienTai` BIGINT(20) NOT NULL,
+  `GiaMuaNgay` BIGINT(20) NOT NULL,
   `NgayBD` datetime NOT NULL,
   `NgayKT` datetime NOT NULL,
   `CatID` int(11) NOT NULL,
@@ -99,7 +99,14 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',1,30000000,26000000,'2018-05-20 00:00:00','2018-05-31 00:00:00',1,1,1,'Mô tả iphone',2),(2,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',9,25000000,26000000,'2018-05-21 00:00:00','2018-08-31 00:00:00',1,1,1,'Mô tả iphone',2),(3,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',8,22000000,26000000,'2018-05-01 00:00:00','2018-08-20 00:00:00',1,1,1,'Mô tả iphone',2),(4,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',9,28000000,26000000,'2018-05-07 00:00:00','2018-07-25 00:00:00',1,1,1,'Mô tả iphone',2),(5,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',6,27500000,26000000,'2018-05-09 00:00:00','2018-11-20 00:00:00',1,1,1,'Mô tả iphone',2),(6,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',7,21000000,26000000,'2018-05-05 00:00:00','2018-10-31 00:00:00',1,1,1,'Mô tả iphone',2),(7,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',2,24000000,26000000,'2018-05-25 00:00:00','2018-08-31 00:00:00',1,1,1,'Mô tả iphone',2),(8,'Iphone 9 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',0,24500000,26000000,'2018-05-03 00:00:00','2018-07-20 00:00:00',1,1,1,'Mô tả iphone',2);
+INSERT INTO `products` VALUES (1,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',1,30000000,260000000,'2018-05-20 00:00:00','2018-05-31 12:45:32',1,1,1,'Mô tả iphone',2),
+(2,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',9,25000000,260000000,'2018-05-21 03:30:00','2018-08-31 05:12:00',1,1,1,'Mô tả iphone',2),
+(3,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',8,22000000,260000000,'2018-05-01 06:29:00','2018-08-20 07:24:00',1,1,1,'Mô tả iphone',2),
+(4,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',9,28000000,260000000,'2018-05-07 04:21:00','2018-07-25 03:54:00',1,1,1,'Mô tả iphone',2),
+(5,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',6,27500000,260000000,'2018-05-09 02:24:00','2018-11-20 06:32:00',1,1,1,'Mô tả iphone',2),
+(6,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',7,21000000,260000000,'2018-05-05 12:33:00','2018-10-31 01:21:00',1,1,1,'Mô tả iphone',2),
+(7,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',2,24000000,260000000,'2018-05-25 09:35:00','2018-08-31 09:46:00',1,1,1,'Mô tả iphone',2),
+(8,'Iphone 9 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',0,24500000,260000000,'2018-05-03 01:12:00','2018-07-20 08:34:00',1,1,1,'Mô tả iphone',2);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
 UNLOCK TABLES;
 --
@@ -152,12 +159,40 @@ CREATE TABLE `lichsudaugia` (
 -- Dumping data for table `dsyeuthich`
 --
 
+
 LOCK TABLES `lichsudaugia` WRITE;
 /*!40000 ALTER TABLE `lichsudaugia` DISABLE KEYS */;
 INSERT INTO `lichsudaugia` VALUES (1, 3, 2, '2018-05-20 04:43:26',20000,'Iphone 8'),
 (2, 4,3,'2018-05-21 12:32:32',30000, 'Iphone X');
 /*!40000 ALTER TABLE `lichsudaugia` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+
+DROP TABLE IF EXISTS `daugia`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `daugia` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `nguoidg_id` int(11) NOT NULL,
+  `sanpham_id` int(11) NOT NULL,
+  `ngaydg` datetime NOT NULL,
+  `sotien` float NOT NULL,
+  `CatName` varchar(50) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+
+LOCK TABLES `daugia` WRITE;
+/*!40000 ALTER TABLE `daugia` DISABLE KEYS */;
+INSERT INTO `daugia` VALUES (1, 3, 2, '2018-05-20 04:43:26',20000,'Iphone 8'),
+(2, 4,3,'2018-05-21 12:32:32',30000, 'Iphone X');
+/*!40000 ALTER TABLE `daugia` ENABLE KEYS */;
+UNLOCK TABLES;
+
+-- Dumping data for table `dsyeuthich`
+--
 
 --
 -- Table structure for table `users`
@@ -184,11 +219,11 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'Người Mua A',0,NULL,'',NULL),
-(2,'Người Bán B',1,NULL,'',NULL),
+INSERT INTO `users` VALUES (1,'Nguyễn Văn A',0,'nguyenvana@gmail.com','e10adc3949ba59abbe56e057f20f883e',1),
+(2,'Trần Văn B',1,'tranvanb@gmail.com','e10adc3949ba59abbe56e057f20f883e',1),
 (3,'Trần Quốc Dũng',1,'dungtran6665@gmail.com','e10adc3949ba59abbe56e057f20f883e',1),
 (52,'Lép Đẹp Trai',0,'tqdungit97@gmail.com','e10adc3949ba59abbe56e057f20f883e',1),
-(4,'Trường Duy',0,'cutruongduy97@gmail.com','e10adc3949ba59abbe56e057f20f883e',1);
+(4,'Trường Duy',1,'cutruongduy97@gmail.com','e10adc3949ba59abbe56e057f20f883e',1);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

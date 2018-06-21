@@ -15,6 +15,17 @@ $(function () {
         $('#product-list-search div[style]').fadeIn(200, function () {
             $(this).removeAttr('style');
         });
+        arrayLength = SearchInfo.products.length;
+        for (var i = 0; i < arrayLength; i++) {
+        var austDay = new Date();
+        str = SearchInfo.products[i].NgayKT;
+            var year = str.slice(0,4);
+            var month = str.slice(5, 7);
+            var date = str.slice(8, 10);
+            idPro = SearchInfo.products[i]  .ProID;
+            austDay = new Date(year, month - 1, date);
+            $('.defaultCountdown'+ idPro).countdown({until: austDay});
+        }
     }
     var UserInfo = JSON.parse(localStorage.getItem('UserInfo'));
     if(UserInfo){
