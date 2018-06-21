@@ -1,7 +1,8 @@
 var express = require('express');
 var productRepo = require('../repos/productRepo'),
     constants = require('../fn/const'),
-    multer = require('multer');
+    multer = require('multer'),
+    fs = require('fs');
 
 var router = express.Router();
 
@@ -131,30 +132,43 @@ router.get('/:id', (req, res) => {
 var staticDir = path.resolve(__dirname, '../public/imgs/products')
 var storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        let category = req.body.category;
-        cb(null, staticDir )
+        cb(null, staticDir)
     },
     filename: function (req, file, cb) {
-        let file_type = file.originalname.substr(file.originalname.indexOf('.'));
-        cb(null, file.originalname);
+        let file_name = file.originalname;
+        let file_type = file_name.substr(file_name.indexOf('.'));
+        for(let i = 0; i < 3; i++){
+            cb(null, file.fieldname + '-' + i + file_type);
+        }
     }
 })
 
 var upload = multer({ storage: storage })
 
-router.post('/', (req, res) => {
-    console.log(req.body);
-    var respone = {
-        filename: req.file.originalname,
-        text: req.body.text_name
-    }
-    res.json(respone);
+router.post('/', upload.array('products', 3), (req, res) => {
+    res.json(req.originalname);
+    //     productRepo.add(req.body)
+    //         .then(insertId => {
+    //             res.statusCode = 201;
+    //             let newDir = staticDir + `/${insertId}`
+    //             if (!fs.existsSync(newDir)) {
+    //                 fs.mkdirSync(newDir);
+    //             }
+    //             next();
+    //         })
+    //         .catch(err => {
+    //             console.log(err);
+    //             res.statusCode = 500;
+    //             res.end();
+    //         });
+    // }, (req, res) => {
+    //     res.json(req.body);
 })
 
 
-router.post('/test', (req, res)=>{
+router.post('/test', (req, res) => {
     console.log(req);
-    res.json(req.files);
+    res.json(req.file.originalname);
 });
 
 module.exports = router;

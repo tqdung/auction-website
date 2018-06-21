@@ -1,5 +1,6 @@
 var db = require('../fn/mysql-db'),
-    constants = require('../fn/const');
+    constants = require('../fn/const'),
+    mysql = require('mysql');
 
 exports.loadAll = function() {
     var sql = 'select * from products';
@@ -83,4 +84,10 @@ exports.load = function(id) {
 exports.loadImage = function(id) {
     var sql = `select * from detail where product_id = ${id}`;
     return db.load(sql);
+}
+exports.add = function(data){
+    var today = new Date();
+    var dd = today.toLocaleDateString();
+    var sql = mysql.format('insert into products(ProName, GiaHienTai, GiaMuaNgay, NgayBD, NgayKT, MoTa, NguoiBanID) values(?, ?, ?, ?, ?, ?, ?)', [data.name, data.starting_price, data.price_buy_now, dd, dd, data.description,data.seller]);
+    return db.insert(sql);
 }
