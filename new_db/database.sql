@@ -99,7 +99,7 @@ CREATE TABLE `products` (
 
 LOCK TABLES `products` WRITE;
 /*!40000 ALTER TABLE `products` DISABLE KEYS */;
-INSERT INTO `products` VALUES (1,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',1,30000000,260000000,'2018-05-20 00:00:00','2018-05-31 12:45:32',1,1,1,'Mô tả iphone',2),
+INSERT INTO `products` VALUES (1,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',1,30000000,260000000,'2018-05-20 00:00:00','2018-8-31 12:45:32',1,1,1,'Mô tả iphone',2),
 (2,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',9,25000000,260000000,'2018-05-21 03:30:00','2018-08-31 05:12:00',1,1,1,'Mô tả iphone',2),
 (3,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',8,22000000,260000000,'2018-05-01 06:29:00','2018-08-20 07:24:00',1,1,1,'Mô tả iphone',2),
 (4,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',9,28000000,260000000,'2018-05-07 04:21:00','2018-07-25 03:54:00',1,1,1,'Mô tả iphone',2),
@@ -108,7 +108,7 @@ INSERT INTO `products` VALUES (1,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Product
 (7,'Iphone 8 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',2,24000000,260000000,'2018-05-25 09:35:00','2018-08-31 09:46:00',1,1,1,'Mô tả iphone',2),
 (8,'Iphone 9 256 Gb','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',0,24500000,260000000,'2018-05-03 01:12:00','2018-07-20 08:34:00',1,1,1,'Mô tả iphone',2);
 /*!40000 ALTER TABLE `products` ENABLE KEYS */;
-UNLOCK TABLES;
+UNLOCK TABLES;	
 --
 -- Table structure for table `dsyeuthich`
 --
@@ -122,6 +122,7 @@ CREATE TABLE `dsyeuthich` (
   `HinhAnh` text CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `MoTa` varchar(255) CHARACTER SET utf8 DEFAULT NULL,
   `NguoiThichID` int(11) NOT NULL,
+  `ProID` int(11) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -132,8 +133,8 @@ CREATE TABLE `dsyeuthich` (
 
 LOCK TABLES `dsyeuthich` WRITE;
 /*!40000 ALTER TABLE `dsyeuthich` DISABLE KEYS */;
-INSERT INTO `dsyeuthich` VALUES (1,'Iphone 10','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg', 'Mô tả Iphone 10',4),
-(2,'Iphone 4','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg','Mô tả Iphone 4',2);
+INSERT INTO `dsyeuthich` VALUES (1,'Iphone 10','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg', 'Mô tả Iphone 10',4,2),
+(2,'Iphone 4','https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg','Mô tả Iphone 4',2,2);
 /*!40000 ALTER TABLE `dsyeuthich` ENABLE KEYS */;
 UNLOCK TABLES;
 

@@ -266,23 +266,22 @@ $('#btnSearch').on('click', function(){
         $('.loadersearch').hide();
 });
 $(document).on('click', '#btnLove', function(){
-    alert('haha');
-    var id = $(this).attr("love-id")
-    var body = {
-        love_key: id,
-    };
+    var UserInfo = JSON.parse(localStorage.getItem('UserInfo'));
+    var id = $(this).attr("love-id");
+    var id_use = UserInfo.user_id;
+    var mota = $(this).attr("mota");
+    var CattName = $(this).attr("CattName");
+
     $.ajax({
-        url: 'http://localhost:3000/user/' + id,
+        url: `http://localhost:3000/user?id_pro=${id}&&id_use=${id_use}&&mota=${mota}&&CatName=${CatName}`,
         dataType: 'json',
         timeout: 10000,
-        type: 'POST',
-        data: JSON.stringify(body)
-    }).done(function (data, errorThrown) {
+        type: 'POST'
+    }).fail(function (data, errorThrown) {
+        alert('haha');
         if (errorThrown) {
             swal("Thêm vào danh sách yêu thích thành công!", "^^!", "Thành công!")
-            var PRO_INFO = data;
-            //Put the object into storage
-            localStorage.setItem('ProInfo', JSON.stringify(PRO_INFO));
+            window.location.reload();
         } else {
             swal("Lỗi!", "Thêm vào danh sách yêu thích thất bại!", "Error")
             }

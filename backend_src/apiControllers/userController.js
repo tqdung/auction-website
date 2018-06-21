@@ -65,6 +65,21 @@ router.post('/login', (req, res) => {
         res.end();
     })
 });
+
+router.post('', (req, res) => {
+    var CatName = req.query.CatName;
+    var mota = req.query.mota;
+    var id_use = req.query.id_use;
+    var id_pro = req.query.id_pro;
+    userRepo.love(CatName, mota, id_use, id_pro).then(rows => {
+        res.end();
+        console.log('hahahahahha');
+    }).catch(err => {
+        console.log(err);
+        res.statusCode = 404;
+        res.end();
+    })
+});
 // Check captcha when user register
 router.post('/captcha', (req, res) => {
     var secret = '6LeS5FMUAAAAAIbog9aGScVx58yvfXMZto2HjTR6';

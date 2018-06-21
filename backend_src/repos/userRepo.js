@@ -26,3 +26,10 @@ exports.confirm = function (email) {
 	var sql = mysql.format('update users set active=1 where email=?', [email]);
 	return db.load(sql);
 }
+
+exports.love = function(CatName, mota, id_use, id_pro){
+	
+    var sql = `INSERT INTO dsyeuthich VALUES (default, ${CatName}, 'https://cdn4.tgdd.vn/Products/Images/42/114114/iphone-8-plus-256gb-a-300x300.jpg',${mota} ,${id_use}, ${id_pro})`;
+    console.log(sql);
+    return db.load(sql);
+}
